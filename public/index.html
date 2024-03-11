@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Satisfy&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo" id="logo">
+            <img src="./Images/logo trans.png" width="60" alt=""><span id="pAY">PAY</span>
+        </div>
+        <div class="nav">
+            <span id="home" aria-selected="true">HOME</span>
+            <span id="fees" aria-selected="false">FEES</span>
+            <span id="faq" aria-selected="false">FAQ</span>
+            <span id="our_mission" aria-selected="false">OUR MISSION</span>
+            <span onclick="login_()" id="login" aria-selected="false">LOGIN</span>
+            <span onclick="logon()" id="joinus" aria-selected="false">JOIN US</span>
+        </div>
+    </nav>
+    <main>
+
+        <div class="carousel">
+            <div class="car1">
+                <div class="car1_items">
+                    <div class="title">
+                        <h1>Welcome to <b>Pi</b><span>Pay</span></h1>
+                        <div class="text">
+                            <b>#1</b>
+                            <span>Nigeria Bank App <br> for
+                                Humanitarian Service</span>
+                        </div>
+
+                        <button>Start Here</button>
+                        <div class="downlaod">
+                            <img width="150px" src="./Images/gplay.png" alt="">
+                            <img width="150px" src="./Images/apple store.png" alt="">
+                        </div>
+                    </div>
+                    <div class="banner">
+
+                    </div>
+                </div>
+            </div>
+            <div class="car2">
+                <div class="car2_text">
+                    <h1><b>Pi</b><span>Pay</span> A Bank for You</h1>
+                    <span><b>Home</b> and <b>Abroad</b></span>
+                    <button>Create an Account</button>
+                    <div class="downlaod">
+                        <img width="150px" src="./Images/gplay.png" alt="">
+                        <img width="150px" src="./Images/apple store.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="car3">
+                <div class="car1_items">
+                    <div class="title">
+                        <h1>Receive <b>5K</b><span> Singup Bonus</span></h1>
+                        <div class="text">
+                            <b>We</b>
+                            <span>are commited to make <br> life
+                                easier for you</span>
+                        </div>
+
+                        <button>Claim your 5K</button>
+                        <div class="downlaod">
+                            <img width="150px" src="./Images/gplay.png" alt="">
+                            <img width="150px" src="./Images/apple store.png" alt="">
+                        </div>
+                    </div>
+                    <div class="banner">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side_menu">
+            <div class="donate">
+                <img src="./Images/gold coin.png" alt="">
+                <a href="#">Donate</a>
+            </div>
+            <div class="cust_care">
+                <?xml version="1.0" encoding="utf-8"?>
+                <svg width="59px" height="44px" viewBox="0 0 89 94" version="1.1"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <image width="128" height="128"
+                            xlink:href="data:image/png;base64,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"
+                            id="img_1" />
+                    </defs>
+                    <g id="Group-3">
+                        <path
+                            d="M0 44.5C0 19.9233 19.9233 0 44.5 0C69.0767 0 89 19.9233 89 44.5C89 69.0767 69.0767 89 44.5 89C19.9233 89 0 69.0767 0 44.5Z"
+                            id="Oval" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+                        <use xlink:href="#img_1" fill="#FFFFFF" stroke="none"
+                            transform="matrix(0.65625 0 0 0.65625 2 10)" />
+                    </g>
+                </svg>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="About">
+            <h2>ABOUT US</h2>
+            <img src="./Images/play.png" width="80px">
+
+        </div>
+    </main>
+    <div class="main2">
+        <div class="title">
+            <h2>OUR THREE <br>STEP
+                <span><u>APPROACH</u></span>
+            </h2>
+        </div>
+        <div class="steps">
+            <div class="step1">
+                <p>#5K BONUS ON SIGNUP</p>
+                <div class="step_number">
+                    <p>#1</p>
+                </div>
+            </div>
+            <div class="step1">
+                <p>INSTANT DEBIT CARD</p>
+                <div class="step_number">
+                    <p>#2</p>
+                </div>
+            </div>
+            <div class="step1">
+                <p>START BANKING</p>
+                <div class="step_number">
+                    <p>#3</p>
+                </div>
+            </div>
+        </div>
+        <div class="explanation">
+            <p>By some means, a surprising flexibility in in terms of the standards control provides a prominent example
+                of The Practice of Basic Capacity (Randy Beale in The Book of the Primary Element)
+                Thus, the explicit examination of major outcomes gives an overview of the irrelevance of program.By some
+                means, a surprising flexibility in in terms of the standards control provides a prominent example
+                of The Practice of Basic Capacity (Randy Beale in The Book of the Primary Element)
+                Thus, the explicit examination of major outcomes gives an overview of the irrelevance of program. </p>
+        </div>
+    </div>
+    <div class="main3">
+        <h1>BANKING WITH US IS GIVING TO THE COMMUNIYTY</h1>
+        <div class="charity">
+            <div class="char_step1">
+                <img src="./Images/" width="70" alt="">
+                <p></p>
+            </div>
+
+            <div class="char_step1">
+                <!-- <img src="./Images/Transaction_13.png" width="70" alt=""> -->
+                <p></p>
+
+            </div>
+
+            <div class="char_step1">
+                <!-- <img src="./Images/Transaction_13.png" width="70" alt=""> -->
+                <p></p>
+
+            </div>
+            <div class="char_step1">
+                <!-- <img src="./Images/Donate_2.png" width="70" alt=""> -->
+                <p></p>
+
+            </div>
+        </div>
+        <div class="char_car">
+            <div class="slid1"></div>
+            <div class="slid1"></div>
+            <div class="slid1"></div>
+            <div class="slid1"></div>
+        </div>
+    </div>
+    <div class="main4">
+        <h1>What Are Users Saying?</h1>
+        <div class="comments">
+            <div class="comment1">
+                <video src="./vid.mp4" width="35%" muted loop></video>
+                <div class="vid_comment">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque earum quae asperiores nemo
+                        animi temporibus velit odit dolorem neque laborum atque voluptas ut, tempora omnis ex
+                        distinctio. Expedita mollitia voluptates dicta modi repudiandae error, animi ipsum doloremque
+                        eveniet dolores unde reiciendis neque eligendi officia similique reprehenderit vero nisi ut iste
+                        necessitatibus provident a nostrum totam. Sit numquam eaque repellat similique, repudiandae,
+                        maxime sapiente saepe voluptates dicta, veritatis est iure. Aut.</p>
+                </div>
+
+            </div>
+            <div class="comment1">
+                <div class="vid_comment">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque earum quae asperiores nemo
+                        animi temporibus velit odit dolorem neque laborum atque voluptas ut, tempora omnis ex
+                        distinctio. Expedita mollitia voluptates dicta modi repudiandae error, animi ipsum doloremque
+                        eveniet dolores unde reiciendis neque eligendi officia similique reprehenderit vero nisi ut iste
+                        necessitatibus provident a nostrum totam. Sit numquam eaque repellat similique, repudiandae,
+                        maxime sapiente saepe voluptates dicta, veritatis est iure. Aut.</p>
+                </div>
+                <video src="./vid 3.mp4" width="35%" muted loop></video>
+
+
+            </div>
+            <div class="comment1">
+                <video src="./vid 2.mp4" width="35%" muted loop></video>
+                <div class="vid_comment">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque earum quae asperiores nemo
+                        animi temporibus velit odit dolorem neque laborum atque voluptas ut, tempora omnis ex
+                        distinctio. Expedita mollitia voluptates dicta modi repudiandae error, animi ipsum doloremque
+                        eveniet dolores unde reiciendis neque eligendi officia similique reprehenderit vero nisi ut iste
+                        necessitatibus provident a nostrum totam. Sit numquam eaque repellat similique, repudiandae,
+                        maxime sapiente saepe voluptates dicta, veritatis est iure. Aut.</p>
+                </div>
+
+            </div>
+        </div>
+        <h4>Trusted by Major Companies in Nigeria:</h4>
+        <div class="trusted">
+            <div class="company_logo">
+            </div>
+            <div class="company_logo">
+            </div>
+            <div class="company_logo">
+            </div>
+            <div class="company_logo">
+            </div>
+            <div class="company_logo">
+            </div>
+
+        </div>
+        <!-- </div> -->
+    </div>
+    <footer>
+        <video src="./footer vid.mp4" autoplay loop muted></video>
+        <div class="filter"></div>
+    </footer>
+</body>
+
+</html>
+<script src="index.js"></script>

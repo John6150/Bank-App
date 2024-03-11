@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Satisfy&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
+</head>
+
+<body>
+
+    <div class="side_menu">
+        <div class="donate">
+            <img src="./Images/gold coin.png" alt="">
+            <a href="#">Donate</a>
+        </div>
+        <div class="cust_care">
+            <?xml version="1.0" encoding="utf-8"?>
+            <svg width="59px" height="44px" viewBox="0 0 89 94" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <image width="128" height="128"
+                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAFwJJREFUeJztXXmUFdWZ/93q7tcNvSGgbAIiuGK3GFtUaDZRkU1AJZHRzMRMMuc4ceZ4ZlMyyUgSBbM6zkHj4HLiuB3FkTiKGWMc9oYGWppFEZXIjkhDbOhuenmvvvmj3lLL3apeVfdj5v04Rb+697vfvVW/737fd6te1QPyyCOPPPLII4888sgjjzzyyCOP/y9gPT2AqHH5a18OjLPEYwBmASjzCBA7DGDpJ18f+Gh3jy0XYPT0AKJGkvw7QSgDASACpTaTQGQOITKXjHr1yLSeHmtP4P+8ARDRdIvo1AakDMG+9TVO/wVtn3cebZ3du6fH3J0o7OkBRAHaNmccyLjUNHHxpXupEmSrE3y4rmTPAuoyFwAGElvnAKBGxtheMrGHgD0FLLGL1bz9QfcdRffgrDcA2jxnKAqMG01mjGWgGgA1RAQQwBhAZlrS1sj7kchWaGEMEY0BsxIlkwwkttzaTqDNDNhIRBsKWlveY1NWt0d0aN2Cs9IAaPu885DAnQD7BgHXA2AMHgKTwlY5ufadMoCouQslDJgIYCJjDGZZ+enEllmvm4xeKLx65WrxIHIXZ5UBUMPtXwfDd5GgGwERZ+Sc4cSf+QBZu+TY84tyAPcYJrvH3DLrUGKz+YRRWrqUjV7eEkRZTyDnDYA23VWB2JnvAuw+ABekGNOmi5xEO+tsFc4/HDllr+cT2JJEa9uDXVtmPlVYYP6Sfe13x3WH2VPI2VUA0SKDPpj3t4idOQDgFwBdoCafPJWirN++KiCPhWTlySsZ4YFEnO1PbJ7+Q/p0enE2yqJGThoANc4di207tgHscQCVQCZM+yEfgG29n+LeIh6m2yACjVTwGQDQi4j9OHGS7Y5vmjEniPbuQM4ZQOKD254k06gnoFpNegp88gFwiSYTNg+QNAgKmAUox0MjwOi38c3TnwtNfYjImRyAts4dSYbxJoDRPltKLcSzvPPI2sMAR0AV/2W5g1Punnj9LZcUoOtWdu37J1Ti3YWc8AC0bd5dZBg74Yv8pG+QnnmyxY5UKHBtZqa+GzAuTkWN7fUzLu6OznTQ4waQaLhtEZl4EaBe6nlkCwrK2JBMGHlE85JBsQqpfg3BjJQldn4BmavbN910kVajiNFjBkC0yEg0zHuWgR6yCuAkCK6NyFkk127viJv1p5JDh0EIFftx/474L9IxqADGmjP1N49QHUnU6DkDaNj+BgO+LRaAD8LdDW17PKKTHsGdBErUSPvwDwKAQQXEVtHmGQOzVJYVesQAEg3zXgBDyEsjvqVYRLuy/rRBpJrJcgmdsKQr6wQDhsfN+LtUd30vXw1DRLcbQKJh3iMMdHf2s8gO6TLASbYgESS/PIqyf4H7F+aYhOo4K3+NaFGPTMZu7ZS2zvkOA33fVgLRzNXQptXWPfPJnQimDEJ8rVhSFnTcns+z4vV1fxdAWdboNgOgxtmjibEnJBIQk8pJCrU6hZdodyLoSAI1VSuTvwAg+jFtmn5+FhoCoVsMgFZ9q4TiBSsAxHy0gi+yPU2ttnay3YkgTHudu6tsZr+2+7ejVyfiz0iURoJuMQCz/OSvALoo1LAvAqX/S+6nZj8vHNjyA68SfllWs19uQIwwraPu5rk6msJC5AZAW+dcy8DuTe4pMu6gnaQ2r8fwEJ1MBJ3XBpIrg7QyST8qmUCzP7PDDPNRem1+gaSDUBG9AQBPcUu5bte/8syMFyjiEJ257pPJD+SXgj3z3bnne/ZLak1c0nX+yb/U0RgGIjWA+Ja53wQwRiyRJM59lU9r08sReEQ7ksHUBaH0eHhjtP8JYfarQgHYQ5JOQkWkBsAYLdaf4H4tQFObLOt3hIYgrp8kdVwF8l1Km+HgjrobFkgUhobIDCC+ZfYCgM4Hsvf0fkH2T47Z7zQE+91B/gCd5bJA4G4XdPanwIDvSToIDZEZAGPsQetThn79+esfXt3JPj1EJ0k1kTYO/oUgN92cUUcw+zNg4zvWT/H53Qj/iMQAaMut4wFUu0rhpiesHFCq1U20wyBsOYJJLs32P35cf/azP1XHDBZ5MhiJAZjAt8XHJ6ctWBYgNiUu0R6D8HoOPfK9x+Yk30W49uxP1bPI84DQDcBaw5J1MUM5veW0Zt0mSbr7pg8/GbQNWEa+dF9SJzQMcTtGNLCr7oZxEuGsEboBxC84MxlA33SBbz+vP++VKgBh1p82BPuFIkBNftau361GfkxEuE0qkCVC/1KoAdxufUodGHPu2opCB+dcUmpm886znUzbSiB78rOf/bYl4RRJg6wRfg7AmOs5e87MDTCpuZDqSRYmb/qkwkE6JLjvDqZbhU1+8NmfxBhaP75cRzAIQjUAqp/XD8CFgloI2VZ5fe1o4K30EE3gPCuQNAgl+SqocwaS1GU+kr3E6EBxre4I/CJUA0gYXRruKqzpz9PHq+YQbc8B0ktAHfJ9xv2QwgIDXS8RyAqh5gCMMAHMFfuVCMMIJNpTOYCgK0oKcd240O1bZX7jvpbrJ5csADBWJW6QHUI1AAKuZIQk934NISLYTyjvxJPrr2rmJssCx32p6xcOLjIDCDUEsFT8d3jUMN29LjJ9Oh8GTRUnQ4L9EnE6aXTr8eqWki+N++5qfluPDyCMpA/n+/g2lT5CMwB6bX4BgYaS26K7xRg4eYWNbO8jYUg+KUSuza3T24+SfJ+ewV3HlyB0nThxhbhxcIQXAoa3jky5+5QRMNv/jiNj7gI3RGFDYTicarO9E+bpU6DOTkukPflKH8MAi8WsvyUlaDmHSRQlyQlAvjju67j+zEcyaBSA0F9SFZoBxBkNYi7i7KfAUcfj0dFUw0NIRQhL6qvxZONliHcc4ouYZtoYqK0NvzvZCzOP3YyF125H7ZAvHLq8EzdE8nnyXFlzJLc6S4TnAUwUwxAnfvbQwHgyWUcFq4e39w7FwnU1OHDK+1JQFdYfHoiZbwxE7ZAv8OiELag690T25KtyBI/rJ08dAIAZl6nGHwSh5QDMQLE31vORTM8c//TyAxK0tjQsXFuDu1ZODkS+HesPD8TMFdOw7pD9sT3e2FTkc5o46nyEBTLvbF9XK7jIFhzhrQJMZmWpDh71kz6nCYj+8bU1d8Rw18rJeLIxvEnS3BHDrBW34OXdowTj1yFfj2B+APD0WWQYxjL5qP0jPAMwTPcZkRhDuKuAhWtr8PbeoaHqTOGv36/Fy7tdj/ILVgza5IvaKNoSsant6ybNVo3ZD8JbBsJoS33ikuzh313gLwSktiX11XhpdyT5URoL14/Fzqa+Vp8ichxF2cR9d+82Keu8PUHvhPfmsTAvBLV5iySkSrmXVNp21x8aiEfrrwzvCARo7ojhrnemCskJl3z+BLBd0h7aXt66UGPYWghtFUBmvJUxA/preIGcj+iwpL5aLQSgsKQI51YPQ+Wwc1HcpzdKB1SieX8T2o59heYDTTi556hSx4FTZfj19tG498oPHQN1ECmZvdauX/L5J4MBD7atmfhs70lrDyoHrkBoF+pp643D4vHC/SytMRvVaiOylmzqV/xXDu+PUbOvRnGl+C3wJ/ccxWdvNyDe3iXXVdyJHd98FZXFnS5qsiTfVs9rT3zP8FbJhLW3SgesgfBCwNV/OAjYv4GVTcKnzg2ebLxcqeW86mEYffcEKfkA0PeSQfja96Yp5Zo7Ylj5+XCvy9ckP0g9n3wCQLPPrJ0wVTpgDYR3HYCBCDhgL+MbQzgrgJV/lGf9xZW9ccFNeiECsMLEqNlXK+XWHR6U2eFe2xeTy837A5Fv/WHAsmwTwnDvBjJzn4hk530X4hiF/irgbQX5AHDp/OtQWFLka/yVw/tj0NhRUpl3Ph8O8WpA7Pb1yHdXqXICurCz9PQ/SgesQMi3g9lHmT01odwv7NoMxLtZ9TuP9xXqBIDSAZUoHVAZ6BgGj5UvKZs7Ymhud9+Z5RyjMubztKuM3/4xqZ/hB21rJga+CBKqAZhEjfya8EOADEHJB6DMAwBgZ1M/2x6HWC3yfSd9orbFBov/m3zEYoT7rWCTNeoRLHP/ovaZ+v2Ka/2lA/rojpiLyuH9NaRELl8n2w8e972jIBDY3KAJYagGUNTRsSM9A0JfBeQSxC7fWasT8zXJV2o3/52jXIlwc4Apq9vBsDFdkOYvW4NwYniF/BdZWo99lZX+5v1N+sI2l5/adX+ydrMkX+UZCCPPrB7/ffhE+A+GEH4vqXMahK+VgL5HaD3WHGTkAICOZs4VbReq+iff9u5y+e5Pmd3wySc7+akPjP65de2EQfCBCJ4Opvd8uW6hDZBry9RV9TspVdl6rDmwERzZvFdaXxHrRGWsU3PWc8rcLcIi30Jvw+z6mXj0XoRuAEXXv7eBGL5ynpRw4/nMC/ejItYplfl4+SYkOuSXdt04daAJRzd/Ju97xD7w57oO+a4W2ZAv6pexu/+0arJ2FhzNG0JMeg2Q0S5z/XohoHaI/AZOR3MbPv/9Du0hJzq68Ol/NSjlagcfSY/GOS77UHnHQF6RbMgXtSeg2OhQXydPIhIDYIz9B+8k+KFbJZG5KyfGlzsO4MMX1ynj+slPjqJh6btKuYpYJ2aM2Cef9RrxPhj5oh1bYbK8ADjNk+Ahssd2Outu/CMA7w8isPC6nbViJjYcUb9u37odPDx9hbB0QCVOHWhC6xfNaD5wXOt2MAA8Mn4j7q3eCS4Dwsu6KpfvKhOSL4z7sJMP0Je9Jm8aIBiMB5H9aBRj7BkiesRTITwJ4NhFqsB9giw8eE0DZr85UzmWeHuXMrarMLS8BfdWc0KKDqmImHzbZxNYxOlEiMjeElZY1LXMd8LniQ1JfymIBLVDjuKBa6L/Qe+KWCdevOW/OWOV5Su2vajJT7Y1QT8unbzp17xjECG618TVrG4C4Tc60T4bPHjNB1hwyaeh67Vj8fi6zNofUMx63XgfGvktAJbFyagqnVz/kOJQPIj0dwOpAI8xE99ylYbez5LaOjR3xpK3asPF0imr8WeX7rF2ZOEr8KzntFXKEABsAPBcSQyvsHEbzwgGpUTkz2531U1dTsAdUfcDAAvXX4+ndoTzDGVFrBMvTn/XWvb5Jl4knzX5xxjD80jQ0yVTNmaX1CQRuQG0r5t6sWHQHkeXEb4kauXnw7FwwzgcPB386aDxg49i8fgNqOp3ArrEA7JZ7yoPRv7KXpPqZgkHHRCRvy6+ZML7n4DRs5mSVGIXwQbCzBH7sOPul/FATYPyaqEbhRVlGHHleXjr1jdR1a8JOnEekMV6l3z6I0eHwkAYaLfucfhBt7y+g9bVntNpFH8IUPpGRdgdi+bdzqZ+eGXPxdjZZN3j33DEGkJFrBO9ywpxAuegqG8fFJaXwii2vunz06HPY36/jRxtfty9q1w4621lQn0EYvin3hM3/lzQUWB02/tbuuqmTDIJqwAWcZ/6SebB9n6Y+NHDVhtbsyGxE1h/xQ+k+rTdfXqXEzLsshLyrT/sz3tNrntB0GFgdNuvhhWNW7UGwM+9y8KwNwnSYpbPHlrchNv61GXeIGJa26H2c7D8+LVcfc5vOYs6cO/yyHeFBvDkMvUMiS8QAbr1dwNjffr/EGCRxDIuXITzjOT+wSvTxFubCTIJ/3poBprj1g96er/eLurM1S831qvjfXrfpidu4JjOIftFtxoAG728k5m0AATTh6dWw+EESEq4G0OLT+D2vhuTxJtpQzjY3he/OjjD5uplxOsQypn1KvLtrQoKzn4PAACxCau2EzOfQpirAd0QkIazzf1DVqKMtTnCAJGJ545MwqtfjlXocO/6nfXkkXSTD4DKxtUd1zw4X+iRl/i1rJo8sKgInwMo6Z4e1Ybxy/3T8dih6c6Ynfzzi4tewjcG1PN1SWa8VcojnifvzQcIwNEz/bHqWM2ppR/Pf8OEsc8gs7Hxp6PfVB6QJnrsLY4d66csBii0x5wz0PMCxCHjpm0PYHfLYI8qAmFa3x1YNHIFhvU6yemG5+5d5VJD4c56PPvZHDy7d05GF0tFOba6gNg9jY9etk98hHroMQNo2TR1QFE8vh9AaC87UIFHuh27Wobgjsb7cDrRyyZCjo/T+u/ALf134vLSI6gq976BTEw8r0/+rAcs8p/ZOwd24u2tGKhxx+IrruIcpi/06Htc29dPepoB34lCt/f7GXqeYefpwbhj2304nShxNCO3UjtpbnZSZuAod7YV5QREQCEMDGMVACMP8en/GQBGP9r1cNUirQMToEd+sz4FZpqPOXI5TchzQtGDp1KN6a2q/DBev2qplRTaloewrRDcS0ZRGchW5kowRe1gEspRxCE/cxyUmbaT9c8aHz1qAMUT131EoK3pPJn0Ni+5flcBkLapKjuMzeMexnUVn2VHtGtp6SZaZEgFMNKjyrwfzSI+RT5Z3mJSkPNuR48aAAAwsNAvb/KhMBRHFaFPURtW1DyB56qfw5DYyUiIFpXFzYSc+Eww2J7tWYn0CyE6SJC5vICxx8PTqOkFNHOEGQN2YcaAXVh3YiRePVyDDU0X4lD7ObYmmSQhE8rd8d4tkJHzLg4I7YkuoLDE7uodOQMBycRQ9DS2Pnr4Zf4W2tdN+BCA9nfZAyFAUujJ6JP4qrMXdjUPFuggzi6faMBuK852T+69G3tbhjvbpqSsH+VoNgsTYz5edNU+5YFI0OMeAADA8D4oJAMQ8qqfH3ifvnE271N0BrX9RV/I8S7tvL27vYE31x9VthR/v/1v8GnL0EwpS4+umRjuz5Z8IAdyAABgJtZK8zo/W4DkMJmCOuKrrcJFpkhfstw1Dqe0Tcahz7afLBpY0oSXrv0X3HPBW+3EsAaMYIK2E/A8FSbGfPyT6t9ID0oTORICai8GYY9aMjyI3Du/WGRAxPkomPEcGY+utJijvq70hq3jBQPIGjnhAUomrP8EQOBvtqrgnuHuecl3Fhqz3fFRMeOF5BNSzz5kNGTArG//RoacMIAksv6eAI9oD9kZQQ6/qpDhItQ38e5Y75717nBAiAO271OGj5wxABN0iEeen39Sl64kXEG6gFD/xMMhw5v1qQoCram4YWukoTE3VgEAGNhhVbImhVZTXf282J7Z8Wpxx3hRX+RSLTAMCwkyjPs0BpsVcsYAADqaDf8uXdnJC5LA6Ij3ygD0k/IpDbt4ow0TOWMABPO0+0enouxNXaQg3VMpShbdf6SzHpZ5sFfKpn7wI47C0JEzBsAIp6LTrk+4QBr82S6SDkJ8WubpsqkNf8UdQgTIGQMgGC0scAxQtONWqwi31WiRniz3OAgtdw8AbQD7h9KpDb4e784WOWMAIJMCRwCfCaCScK6QbJUAwGSvUyEtRgLXAOw6ENWAocoj6yGeHQJjy7qKOpf2mbDzT/JjCB+5YwBAVosAngK1Or3kT9o2JcLILJ20dRuAbQCWAQCturysFaXXMUqMBRlXE6gfA+sA6AiAfczAu72nNGxSDjNC5I4BMPIdAfzbi4pwlVZvSEi7eeZ95I1N+agFwB+SW04idwwAITgAmRahclWv/DxAHN/PLuSUAWR9QkO7GBSEdFOn85xD7hhAAiHfm/RjTOLkTz3TM5d1z0bkjgEwMrvvLMqyfR+k20sYOytdQM4YADPpJIV+a0on6dON5/JrAozwpa+h5QhyxgBK4u31Z2I6jwpqeAmJiM7VAI+0zmqB8D8aCnMOOXM7mE3b0QqTHlc/DQz15tjl3TKWXdTh9OWud7VnoI9Lb2z4bRjnobuRMwYAAL2nbrmfgA06HPPI1Sc6BRXhNhmuLgJAx+MsMTfQAecAcsoAAKB3q3kzkfk4QMe1pro23GTrEC4g3Wp/BoT/NAwaW3HDjm79PmMeeeSRRx555JFHHnnkkUceeeSRRx555JFHHnn4wP8C2afwf0G0rNcAAAAASUVORK5CYII="
+                        id="img_1" />
+                </defs>
+                <g id="Group-3">
+                    <path
+                        d="M0 44.5C0 19.9233 19.9233 0 44.5 0C69.0767 0 89 19.9233 89 44.5C89 69.0767 69.0767 89 44.5 89C19.9233 89 0 69.0767 0 44.5Z"
+                        id="Oval" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+                    <use xlink:href="#img_1" fill="#FFFFFF" stroke="none"
+                        transform="matrix(0.65625 0 0 0.65625 2 10)" />
+                </g>
+            </svg>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="sidenav">
+            <div class="logo" id="logo">
+                <img src="./Images/logo trans.png" width="60" alt="">
+                <span id="pAY">PAY</span>
+            </div>
+            <div class="menu">
+                <span id="menu">
+                    <img width="15" src="./Images/dashboard.png" alt="">
+                    <p>Dashboard</p>
+                </span>
+                <span id="menu">
+                    <img width="15" src="./Images/history.png" alt="">
+                    <p>Transactions</p>
+                </span>
+                <span id="menu">
+                    <img width="15" src="./Images/message.png" alt="">
+                    <p>Messages</p>
+                </span>
+                <span id="menu">
+                    <img width="15" src="./Images/card.png" alt="">
+                    <p>Cards</p>
+                </span>
+                <span id="menu">
+                    <img width="15" src="./Images/Wallet_2.png" alt="">
+                    <p>Wallets</p>
+                </span>
+                <span id="menu">
+                    <img width="15" src="./Images/Settings.png" alt="">
+                    <p>Settings</p>
+                </span>
+
+            </div>
+            <div class="menu_footer">
+                <span id="menu">
+                    <img width="20" src="./Images/Customer_Support_2.png" alt="">
+                    <p>Need help?</p>
+                </span>
+                <span id="menu">
+                    <img width="20" src="./Images/Logout.png" alt="">
+                    <p>Logout</p>
+                </span>
+            </div>
+        </div>
+        <div class="dashboard">
+            <nav>
+                <div class="nav">
+                    <span>
+                        <a href="home.html">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <svg width="26px" height="26px" viewBox="0 0 296 296" version="1.1"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <path d="M296 0L296 0L296 296L0 296L0 0L296 0Z" id="path_1" />
+                                    <clipPath id="clip_1">
+                                        <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+                                    </clipPath>
+                                </defs>
+                                <g id="Home" clip-path="url(#clip_1)" transform="scale(0.99999994 0.99999994)">
+                                    <path d="M296 0L296 0L296 296L0 296L0 0L296 0Z" id="Home" fill="none"
+                                        stroke="none" />
+                                    <path
+                                        d="M227.692 23.125C221.422 23.125 216.308 28.2392 216.308 34.5096L216.308 88.9423L156.183 28.8173C151.736 24.3702 144.264 24.3702 139.817 28.8173L6.40385 162.587C1.95673 167.034 1.95673 174.149 6.40385 178.596C10.851 183.043 17.9664 183.043 22.4135 178.596L148 53.0096L273.942 178.952C276.166 181.176 279.19 182.51 282.125 182.51C285.06 182.51 287.728 181.176 289.952 178.952C294.399 174.505 294.399 167.389 289.952 162.942L250.462 123.452L250.462 34.5096C250.462 28.2392 245.347 23.125 239.077 23.125L227.692 23.125ZM148 74L22.7692 199.231L22.7692 261.846C22.7692 280.702 38.0673 296 56.9231 296L239.077 296C257.933 296 273.231 280.702 273.231 261.846L273.231 199.231L148 74ZM125.231 182.154L170.769 182.154C177.04 182.154 182.154 187.268 182.154 193.538L182.154 261.846C182.154 268.117 177.04 273.231 170.769 273.231L125.231 273.231C118.96 273.231 113.846 268.117 113.846 261.846L113.846 193.538C113.846 187.268 118.96 182.154 125.231 182.154L125.231 182.154Z"
+                                        id="Shape" fill="#171d27" fill-rule="evenodd" stroke="none" />
+                                </g>
+                            </svg>
+                        </a>
+                    </span>
+                    <span>
+                        <a href="#">
+                            <img width="26px" src="./Images/bell.png" alt="">
+                        </a>
+                    </span>
+                    <span class="searchbar">
+                        <input type="text" placeholder="Transaction number">
+                        <!-- <a href="#"> -->
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <svg width="26px" height="26px" viewBox="0 0 220 220" version="1.1"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <path d="M220 0L220 0L220 220L0 220L0 0L220 0Z" id="path_1" />
+                                <clipPath id="clip_1">
+                                    <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+                                </clipPath>
+                            </defs>
+                            <g id="Search" clip-path="url(#clip_1)">
+                                <path d="M220 0L220 0L220 220L0 220L0 0L220 0Z" id="Search" fill="none" stroke="none" />
+                                <path
+                                    d="M91.6667 18.3333C51.2325 18.3333 18.3333 51.2325 18.3333 91.6667C18.3333 132.101 51.2325 165 91.6667 165C110.238 165 127.162 157.999 140.096 146.577L198.426 204.907C199.315 205.796 200.493 206.25 201.667 206.25C202.84 206.25 204.009 205.796 204.907 204.907C206.695 203.111 206.695 200.223 204.907 198.426L146.577 140.096C157.999 127.171 165 110.238 165 91.6667C165 51.2325 132.101 18.3333 91.6667 18.3333L91.6667 18.3333ZM91.6667 27.5C127.041 27.5 155.833 56.2833 155.833 91.6667C155.833 127.05 127.041 155.833 91.6667 155.833C56.2925 155.833 27.5 127.05 27.5 91.6667C27.5 56.2833 56.2925 27.5 91.6667 27.5L91.6667 27.5ZM91.6667 36.6667C72.0171 36.6667 53.8601 47.1496 44.0353 64.1667C34.2105 81.1837 34.2105 102.15 44.0353 119.167C53.8601 136.184 72.0171 146.667 91.6667 146.667C111.316 146.667 129.473 136.184 139.298 119.167C149.123 102.15 149.123 81.1837 139.298 64.1666C129.473 47.1496 111.316 36.6667 91.6666 36.6667L91.6667 36.6667Z"
+                                    id="Shape" fill="#171d27" fill-rule="evenodd" stroke="none" />
+                            </g>
+                        </svg>
+                        <!-- </a> -->
+                    </span>
+                    <span onclick="account()" id="account" aria-selected="false">
+                        <div id="dp" class="profiledp">
+                        </div>
+                    </span>
+                    <span onclick="logout_()" id="logout" aria-selected="false">Logout</span>
+                </div>
+            </nav>
+
+            <div class="dashboard_content">
+                <div class="ads">
+                    <div class="ads_main">
+                        <img width="180" src="./Images/3d_char-removebg-preview.png" alt="">
+                        <h1 style="text-align: center;">
+                            We are here to make your lives easier
+                            <p style="font-size: 15px; font-weight: 200;">Start transacting today to enjoy the benefits
+                                of our platform.</p>
+                        </h1>
+                        <img width="200" src="./Images/Mockups.png" alt="">
+                    </div>
+                    <div style="background-color: #171717; color: white; width: fit-content;" class="announcement">
+                        <div class="ann_text">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non iure eos in, tenetur facere mollitia at ducimus eaque veniam et deleniti veritatis optio asperiores praesentium repellendus? Maxime ipsum inventore perspiciatis a quae possimus, excepturi eum reprehenderit consequatur facilis iure iusto repellat dolore id, sapiente numquam natus error culpa eos animi?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="title">
+                    <div class="main_balance">
+                        <h1>Dashboard</h1>
+                        <h4 id="title_">Welcome Guest</h4>
+                        <p id="balance">&#8358;0.00 </p>
+                    </div>
+                    <div class="spent">
+                        <img width="40" src="./Images/spendings.png" alt="">
+                        <div class="spent_details">
+                            <h4 id="Spent">&#8358;0.00 Spent</h4>
+                            <p>Over the last 30days</p>
+                        </div>
+                    </div>
+                    <div class="spent">
+                        <img width="40" src="./Images/donations.png" alt="">
+                        <div class="spent_details">
+                            <h4 id="donated">&#8358;0.00 Donated</h4>
+                            <p>Over the last 30days</p>
+                        </div>
+                    </div>
+                    <div class="spent">
+                        <img width="40" src="./Images/bonus.png" alt="">
+                        <div class="spent_details">
+                            <h4 id="bonus">&#8358;0.00 Bonus received</h4>
+                            <p>Over the last 30days</p>
+                        </div>
+                    </div>
+                    <div class="spent">
+                        <img width="40" src="./Images/credits.png" alt="">
+                        <div class="spent_details">
+                            <h4 id="points">5pts Earned</h4>
+                            <p>Over the last 30days</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="transact_menu">
+                    <div class="graph"></div>
+                    <div class="cards">
+                        <div class="card_title">
+                            <h3 style="font-family: inter; color: #171d27; font-weight: 100;">My Cards</h3>
+                            <img width="30" src="./Images/add.png" alt="">
+                        </div>
+                        
+                        <div class="front_card">
+                                
+                        </div>
+                        <div class="back_card">
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="dashboard.js"></script>

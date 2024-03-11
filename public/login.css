@@ -1,0 +1,252 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* gap: 40px; */
+    /* overflow-x: hidden; */
+    nav {
+        width: 97vw;
+        padding: 10px 30px 10px 30px;
+        background-color: #171D27;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        /* margin: auto; */
+        justify-content: space-between;
+        z-index: 9;
+
+        .logo {
+            width: 150px;
+            height: 40px;
+            display: flex;
+
+            img {
+                width: 59px;
+                height: 39.33px;
+            }
+
+            #pAY {
+                color: #eb7824;
+                font-family: Inter;
+                font-size: 36px;
+                font-weight: 300;
+                font-family: "Inter", sans-serif;
+                text-align: center;
+                letter-spacing: 7.2px;
+            }
+
+        }
+
+        .nav {
+            width: fit-content;
+            height: 46px;
+            /* background-color: red; */
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            justify-content: space-between;
+            /* background-color: #1b2433; */
+
+            span {
+                color: #ffffff;
+                font-family: Inter;
+                font-size: 15px;
+                font-weight: 400;
+                cursor: pointer;
+            }
+
+            #joinus {
+                color: #fdfdfd;
+                font-family: Inter;
+                background: #eb7824;
+                padding: 6px;
+                border-radius: 40px;
+            }
+
+            #rectangle8 {
+                position: absolute;
+                left: 0px;
+                top: 40px;
+                width: 31px;
+                height: 6px;
+                background: #eb7824;
+                background-blend-mode: normal;
+            }
+
+        }
+    }
+
+    .side_menu {
+        width: 75px;
+        height: 150px;
+        /* background-color: red; */
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        justify-content: space-between;
+        position: fixed;
+        z-index: 4;
+
+        .donate {
+            color: #eb7824;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: inter;
+            width: 70px;
+            font-size: 15px;
+            font-family: inter;
+            font-weight: 200;
+
+            img {
+                width: 70px;
+            }
+            a{
+            color: #eb7824;
+            text-decoration: none;
+            }
+        }
+
+        .cust_care {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+            /* color: #eb7824; */
+            font-size: 15px;
+            font-family: inter;
+            font-weight: 200;
+
+            a {
+                text-decoration: none;
+                color: #eb7824;
+            }
+        }
+    }
+}
+
+.main {
+    width: 80vw;
+    height: 500px;
+    display: flex;
+    background-color: #f9f8f6;
+    position: absolute;
+    top: 170px;
+
+    /* background-color: red; */
+    .login_ {
+        width: 70%;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        /* background-color: #fbfaf8; */
+        h1 {
+            font-size: 50px;
+            font-family: inter;
+            font-weight: 100;
+            color: #eb7824;
+        }
+
+        .form {
+            height: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            position: relative;
+
+            /* background-color: red; */
+            .PassDiv{
+                position: relative;
+                width: 370px;
+                height: 50px;
+                align-items: center;
+                justify-content: center;
+                /* background-color: red; */
+                input {
+                width: 350px;
+                height: 25px;
+                border-radius: 25px;
+                border: none;
+                outline: none;
+                padding: 10px;
+                position: relative;
+                background-color: #ffffff;
+                color: black;
+            }
+            }
+            input {
+                width: 350px;
+                height: 25px;
+                border-radius: 25px;
+                border: none;
+                outline: none;
+                padding: 10px;
+                position: relative;
+                background-color: #ffffff;
+                color: black;
+            }
+            
+
+            input:focus-within {
+                border: 2px solid #eb7824;
+                transition: all 200ms ease;
+            }
+
+            img {
+                position: absolute;
+                right: 5%;
+                top: 28%;
+                z-index: 2;
+                /* top: 10px; */
+            }
+
+            p {
+                font-family: inter;
+                font-weight: 200;
+
+                a {
+                    text-decoration: none;
+                    color: #eb7824;
+                }
+            }
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            border: none;
+            outline: none;
+            background-color: #eb7824;
+            border-radius: 30px;
+            color: white;
+        }
+    }
+
+    .banner {
+        width: 60%;
+        height: 500px;
+        background-image: url(./Images/3d\ char.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* background-color: yellow; */
+    }
+}
