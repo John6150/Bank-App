@@ -14,12 +14,13 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
 
-    <div class="side_menu">
+    <!-- <div class="side_menu">
         <div class="donate">
             <img src="./Images/gold coin.png" alt="">
             <a href="#">Donate</a>
@@ -43,8 +44,8 @@
             </svg>
             <a href="#">Contact</a>
         </div>
-    </div>
-    <div class="main">
+    </div> -->
+    <div id="main" class="main">
         <div class="sidenav">
             <div class="logo" id="logo">
                 <img src="./Images/logo trans.png" width="60" alt="">
@@ -157,9 +158,13 @@
                         </h1>
                         <img width="200" src="./Images/Mockups.png" alt="">
                     </div>
-                    <div style="background-color: #171717; color: white; width: fit-content;" class="announcement">
+                    <div style="background-color: #171717; color: white; width: 100%;" class="announcement">
                         <div class="ann_text">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non iure eos in, tenetur facere mollitia at ducimus eaque veniam et deleniti veritatis optio asperiores praesentium repellendus? Maxime ipsum inventore perspiciatis a quae possimus, excepturi eum reprehenderit consequatur facilis iure iusto repellat dolore id, sapiente numquam natus error culpa eos animi?</p>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non iure eos in, tenetur facere
+                                mollitia at ducimus eaque veniam et deleniti veritatis optio asperiores praesentium
+                                repellendus? Maxime ipsum inventore perspiciatis a quae possimus, excepturi eum
+                                reprehenderit consequatur facilis iure iusto repellat dolore id, sapiente numquam natus
+                                error culpa eos animi?</p>
                         </div>
                     </div>
                 </div>
@@ -193,29 +198,224 @@
                     <div class="spent">
                         <img width="40" src="./Images/credits.png" alt="">
                         <div class="spent_details">
-                            <h4 id="points">5pts Earned</h4>
+                            <h4 id="points">0pts Earned</h4>
                             <p>Over the last 30days</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="transact_menu">
-                    <div class="graph"></div>
-                    <div class="cards">
-                        <div class="card_title">
-                            <h3 style="font-family: inter; color: #171d27; font-weight: 100;">My Cards</h3>
-                            <img width="30" src="./Images/add.png" alt="">
+                    <div class="graph">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div style="height: 520px; display: flex; flex-direction: column; justify-content: space-between;"
+                        class="randomdiv">
+                        <div class="cards">
+                            <div class="cardbtn">
+                                <img id="cardbtn1" onclick="cardscr('1')" width="25"
+                                    style="background-color: #8f8f8fa5; border-radius: 100%;"
+                                    src="./Images/Backward_3.png" alt="">
+                                <img id="cardbtn2" onclick="cardscr('2')" width="25"
+                                    style="background-color: #eb7724; border-radius: 100%;" src="./Images/Forward_3.png"
+                                    alt="">
+                            </div>
+                            <div class="card_title">
+                                <h3 style="font-family: inter; color: #ffffff; font-weight: 100;">My Cards</h3>
+                                <img width="25" src="./Images/add2.png" alt="">
+                            </div>
+                            <div id="cardfaces" class="cardfaces">
+                                <div class="front_card">
+                                    <div class="logo">
+                                        <h3><b>Pi</b>Pay</h3>
+                                    </div>
+                                    <div class="cardic"><img width="35" src="./Images/Card IC.png" alt=""><img
+                                            width="30" src="./Images/signal.png" alt=""></div>
+                                    <div class="cardno">
+                                        <p id="cardnumber">1234567891234567</p>
+                                        <div class="cardname">
+                                            <p>John Femi</p>
+                                            <p id="cardexp">Exp: 06/25</p>
+                                        </div>
+                                    </div>
+                                    <div class="cardtype"><img width="40" src="./Images/mastrercard.png" alt=""></div>
+                                </div>
+                                <div class="back_card">
+                                    <div class="tape">
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel soluta, aperiam
+                                            enim
+                                            autem commodi, quis a eaque error nam atque, provident possimus laboriosam
+                                            neque
+                                            aliquid.Blanditiis voluptatum ad pariatur est?</p>
+                                    </div>
+                                    <div class="tape2">
+                                        <p id="cardcvv">CVV 234</p>
+                                    </div>
+                                    <div class="cardexp">
+                                        <p>
+                                            <span><b>Pi</b>Pay</span>Lorem, ipsum dolor sit amet consectetur adipisicing
+                                            elit.
+                                            Nobis dignissimos doloremque vitae sunt quam iusto repellendus rerum
+                                            temporibus
+                                            atque. Magni sequi ad laborum dolore perspiciatis doloremque ipsa ipsum
+                                            expedita
+                                            unde.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        
-                        <div class="front_card">
-                                
+                        <div class="exchange_rate">
+                            <div class="exchange_title">
+                                <h4 style="font-family: inter; color: white; font-weight: 200; font-size: 20px;">
+                                    Exchange Rate</h4>
+                                <a style="text-decoration: underline; font-family: inter; color: rgb(214, 214, 214); font-size: 13px;"
+                                    href="#">View all</a>
+                            </div>
+                            <div class="exchange_details">
+                                <div class="currencies"><img width="25" src="./Images/Usa.png" alt="">
+                                    <div class="scales"></div><span id="usa">1600 <p>+1.3%</p></span>
+                                </div>
+                                <div class="currencies"><img width="25" src="./Images/euro.png" alt="">
+                                    <div class="scale"></div><span id="euro">1650<p>-1.3%</p></span>
+                                </div>
+                                <div class="currencies"><img width="25" src="./Images/britain.png" alt="">
+                                    <div class="scale"></div><span id="gbp">1950<p>-1.3%</p></span>
+                                </div>
+                                <div class="currencies"><img width="25" src="./Images/china.png" alt="">
+                                    <div class="scales"></div><span class="gain" id="yuan">220.43<p>+1.3%</p></span>
+                                </div>
+                                <div class="currencies"><img width="25" src="./Images/Canada.png" alt="">
+                                    <div class="scale"></div><span id="cad">1175.16<p>-1.3%</p></span>
+                                </div>
+                                <div class="currencies"><img width="25" src="./Images/Australia.png" alt="">
+                                    <div class="scales"></div><span class="gain" id="aud">1,047.58<p>+1.3%</p></span>
+                                </div>
+                                <div class="currencies"><img width="25" src="./Images/UAE.png" alt="">
+                                    <div class="scales"></div><span class="gain" id="dirham">431.68<p>+1.3%</p></span>
+                                </div>
+                                <div class="currencies"><img width="25" src="./Images/South_Africa.png" alt="">
+                                    <div class="scales"></div><span class="gain" id="rand">84.71<p>+1.3%</p></span>
+                                </div>
+                                <div class="currencies"><img width="25" src="./Images/Nigeria_Circular.png" alt="">
+                                    <div class="null"></div><span class="gain" id="ngn">1<p>+0.0%</p></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="back_card">
-                                
+                    </div>
+
+                    <div class="tab">
+                        <div class="actions">
+                            <div onclick="transact('send')" id="send_" class="send_div">
+                                <img width="25" src="./Images/Sent.png" alt="">
+                                <h4>Send Funds</h4>
+                            </div>
+                            <div onclick="transact('fund')" id="fund_" class="fund_div">
+                                <img width="25" src="./Images/funds.png" alt="">
+                                <h4>Fund My Account</h4>
+                            </div>
+                            <div onclick="transact('airtime')" id="airtime_" class="airtime_div">
+                                <img width="25" src="./Images/Cellular_Network.png" alt="">
+                                <h4>Buy Airtime</h4>
+                            </div>
+                            <div onclick="transact('donate')" id="donate_" class="donate">
+                                <img width="30" src="./Images/Donate.png" alt="">
+                                <h4>Donate</h4>
+                            </div>
+
+                        </div>
+
+
+                        <form onsubmit="prevDefault_(event)" id="send" action="#">
+                            <input id="receiver_acct" onkeypress="numberChk(event)" type="text" placeholder="Account Number">
+                            <input id="send_amount" onkeypress="numberChk(event)" type="text" placeholder="Amount">
+                            <input id="receiver_name" type="text" placeholder="Account Name" disabled>
+                            <button onclick="sendFunds()" type="submit">Send</button>
+                        </form>
+                        <form onsubmit="prevDefault_(event)" id="fund_div" action="#">
+                            <input onkeypress="numberChk(event)" type="text" placeholder="Amount">
+                            <select name="" id="fund_method">
+                                <option value="">Method</option>
+                                <option value="ussd">USSD</option>
+                                <option value="card">Card</option>
+                                <option value="transfer">Transfer</option>
+                                <option value="cash deposit">Cash Deposit</option>
+                            </select>
+                            <button type="submit">Fund</button>
+                        </form>
+                        <form onsubmit="prevDefault_(event)" id="donate" action="#">
+                            <input onkeypress="numberChk(event)" id="donate_amount" type="text" placeholder="Amount">
+                            <input onkeypress="numberChk(event)" type="text" id="foundation_id" placeholder="Foundation ID">
+                            <input type="text" id="foundation_name" placeholder="Foundation Name" disabled>
+                            <select name="" id="donate_method">
+                                <option value="">Method</option>
+                                <option value="balance">Balance</option>
+                                <option value="card">Card</option>
+                                <option value="cash_deposit">Cash Deposit</option>
+                            </select>
+                            <button onclick="donate_funds()" type="submit">Donate</button>
+                        </form>
+                        <form id="airtime_div" action="" onsubmit="prevDefault_(event)">
+                            <input id="mobile_number" onkeypress="numberChk(event)" ; oninput="network_type()"
+                                type="text" placeholder="Phone Number">
+                            <input onkeypress="numberChk(event)" id="airtime_amount" type="text" placeholder="Amount">
+                            <input type="text" id="network" placeholder="Network" disabled>
+                            <p id="network_error" style="display: none; font-size: 13px; transform: translateY(0%);">
+                                Sorry, an error occurred</p>
+                            <button onclick="airtime_purchase()" type="submit">Buy</button>
+                        </form>
+                    </div>
+                    <div style="height: 520px; display: flex; flex-direction: column; justify-content: space-between;"
+                        class="randomdiv">
+                        <div class="beneficiary">
+                            <div class="beneficiary_title">
+                                <h3>Quick Transfers</h3>
+                            </div>
+                            <div class="benefit">
+                                <div class="beneficiaries">
+                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                </div>
+                            </div>
+                            <span id="bene_details">Frank Thomo <p>1122334455</p></span>
+                            <div class="bene_send">
+                                <input onkeypress="numberChk(event)" placeholder="Amount" type="text">
+                                <button>Send</button>
+                            </div>
+
+
+                        </div>
+                        <div class="recent_tran">
+                            <div class="recent_title">
+                                <h3>Transaction History</h3>
+                                <a href="#">view all</a>
+                            </div>
+                            <div class="recent_tran2">
+                                <div id="recent_details" class="recent_details"></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="modal1" class="modal1">
+        <div class="modal_header">
+            <h4 style="font-weight: 300;">Airtime Purchase</h4>
+            <img onclick="close_()" width="25" src="./Images/close.png" alt="">
+        </div>
+        <div style="width: 70px; height: 70px;" id="network_logo" class="network_logo"></div>
+        <p id="aitime_msg"></p>
+        <div class="airtime_btns">
+            <button onclick="close_()">Cancel</button>
+            <button onclick="buyAirtime()">Buy</button>
         </div>
     </div>
 </body>

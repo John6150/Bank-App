@@ -123,9 +123,9 @@ function signup() {
                 }).catch((error) => {
                 });
                 for (let i = 0; i < 10; i++) {
-                    AccountNumber += Math.floor(Math.random() * 10)    
+                    AccountNumber += Math.floor(Math.random() * 10)
                 }
-                
+
                 const db = firebase.firestore();
                 // Add a new document in collection "cities"
                 db.collection("Users").doc(`${email.value}`).set({
@@ -136,11 +136,15 @@ function signup() {
                     ProfilePicture: imageSrc,
                     Id: user.uid,
                     AccountNumber: AccountNumber,
-                    Balance: 5000
+                    Balance: 5000,
+                    Points: 0,
+                    Donated: 0,
+                    Spent: 0,
 
                 })
                     .then(() => {
                         console.log("Document successfully written!");
+                        Create_History("Registration Bonus", fullName.value, AccountNumber, Number(5000))
                         window.location.href = "login.html"
 
                     })
@@ -163,4 +167,36 @@ function dial_(e) {
         mobile.value = `${data[0].idd.root + data[0].idd.suffixes}(0) `
     })
 }
+
+function Create_History(tranType, beneName, beneAcct, amnt) {
+    tran_id = ''
+    for (let i = 0; i < 16; i++) {
+      tran_id += Math.floor(Math.random() * 10)
+      console.log(tran_id);
+    }
+    const db = firebase.firestore();
+    // Add a new document in collection "cities"
+    // db.collection("History").doc(userEmail).doc(`${tran_id}`).set({
+  
+    let userhistory = db
+      .collection("History").doc(email.value)
+      .collection(AccountNumber);
+  
+    userhistory.doc(`${tran_id}`).set({
+      Type: tranType,
+      Amount: amnt,
+      Date: new Date().toLocaleDateString(),
+      Time: new Date().toLocaleTimeString(),
+      Transaction_ID: Number(tran_id),
+      Beneficiary: { "Beneficiary_Name": beneName, "Beneficiary_Account": beneAcct }
+    })
+      .then(() => {
+        console.log("Transaction_History Added");
+        console.log("Document successfully written!");
+        // window.location.href = "login.html";
+      })
+      .catch((error) => {
+        console.error("Error writing document:", error);
+      });
+  }
 
