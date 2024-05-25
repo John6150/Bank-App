@@ -8,23 +8,20 @@ body {
     margin: 0;
     display: flex;
     height: 100vh;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
     justify-content: space-between;
-
-    /* gap: 40px; */
-    /* overflow-x: hidden; */
     nav {
-        width: 97vw;
+        width: 77vw;
         padding: 10px 30px 10px 30px;
-        background-color: #171D27;
+        background-color: #162136f4;
         display: flex;
         align-items: center;
         position: fixed;
-        /* margin: auto; */
         justify-content: space-between;
         z-index: 9;
-
+        backdrop-filter: blur(150px);
+        box-shadow: 0px 5px 15px #0000009d;
         .logo {
             width: 150px;
             height: 40px;
@@ -82,7 +79,17 @@ body {
                 background: #eb7824;
                 background-blend-mode: normal;
             }
-
+            
+        }
+        .skew {
+            width: 150px;
+            height: 100%;
+            position: absolute;
+            right: -30px;
+            transform: skew(-27deg);
+            z-index: -2;
+            box-shadow: -5px 3px 8px #000000;
+            background-color: #171D27;
         }
     }
 
@@ -144,8 +151,7 @@ body {
     height: 500px;
     display: flex;
     background-color: #f9f8f6;
-    position: absolute;
-    top: 170px;
+    margin: auto;
 
     /* background-color: red; */
     .login_ {

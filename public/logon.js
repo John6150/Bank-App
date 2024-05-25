@@ -1,6 +1,7 @@
 let mobile = document.getElementById("mobile")
 let tcs = document.getElementById("tcs")
 let privacy = document.getElementById("privacy")
+let privacy2 = document.getElementById("privacy2")
 let pass = document.getElementById("pass")
 let pass2 = document.getElementById("cpass")
 let passConfirm = document.getElementById("passConfirm")
@@ -84,12 +85,12 @@ function passCon() {
 }
 
 function private() {
-    pass2.type == "password" ? privacy.src = "./Images/hide.png" : privacy.src = "./Images/show.png"
-    pass2.type == "password" ? pass2.type = "text" : pass2.type = "password"
+    pass.type == "password" ? privacy.src = "./Images/hide.png" : privacy.src = "./Images/show.png"
+    pass.type == "password" ? pass.type = "text" : pass.type = "password"
 }
 function private2() {
-    pass.type == "password" ? privacy2.src = "./Images/hide.png" : privacy2.src = "./Images/show.png"
-    pass.type == "password" ? pass.type = "text" : pass.type = "password"
+    pass2.type == "password" ? privacy2.src = "./Images/hide.png" : privacy2.src = "./Images/show.png"
+    pass2.type == "password" ? pass2.type = "text" : pass2.type = "password"
 }
 
 function upload() {
@@ -106,6 +107,8 @@ function upload() {
 function signup() {
     if (!fullName.value || !mobile.value) {
         alert("Please fill in the required details")
+    } else if (imageSrc.length > 1048486) {
+        alert("Image is too large")
     } else {
         firebase.auth().createUserWithEmailAndPassword(email.value, pass.value)
             .then((userCredential) => {
@@ -140,11 +143,11 @@ function signup() {
                     Points: 0,
                     Donated: 0,
                     Spent: 0,
-
                 })
                     .then(() => {
                         console.log("Document successfully written!");
                         Create_History("Registration Bonus", fullName.value, AccountNumber, Number(5000))
+                        
                         window.location.href = "login.html"
 
                     })
@@ -171,32 +174,32 @@ function dial_(e) {
 function Create_History(tranType, beneName, beneAcct, amnt) {
     tran_id = ''
     for (let i = 0; i < 16; i++) {
-      tran_id += Math.floor(Math.random() * 10)
-      console.log(tran_id);
+        tran_id += Math.floor(Math.random() * 10)
+        console.log(tran_id);
     }
     const db = firebase.firestore();
     // Add a new document in collection "cities"
     // db.collection("History").doc(userEmail).doc(`${tran_id}`).set({
-  
+
     let userhistory = db
-      .collection("History").doc(email.value)
-      .collection(AccountNumber);
-  
+        .collection("History").doc(email.value)
+        .collection(AccountNumber);
+
     userhistory.doc(`${tran_id}`).set({
-      Type: tranType,
-      Amount: amnt,
-      Date: new Date().toLocaleDateString(),
-      Time: new Date().toLocaleTimeString(),
-      Transaction_ID: Number(tran_id),
-      Beneficiary: { "Beneficiary_Name": beneName, "Beneficiary_Account": beneAcct }
+        Type: tranType,
+        Amount: amnt,
+        Date: new Date().toLocaleDateString(),
+        Time: new Date().toLocaleTimeString(),
+        Transaction_ID: Number(tran_id),
+        Beneficiary: { "Beneficiary_Name": beneName, "Beneficiary_Account": beneAcct }
     })
-      .then(() => {
-        console.log("Transaction_History Added");
-        console.log("Document successfully written!");
-        // window.location.href = "login.html";
-      })
-      .catch((error) => {
-        console.error("Error writing document:", error);
-      });
-  }
+        .then(() => {
+            console.log("Transaction_History Added");
+            console.log("Document successfully written!");
+            // window.location.href = "login.html";
+        })
+        .catch((error) => {
+            console.error("Error writing document:", error);
+        });
+}
 

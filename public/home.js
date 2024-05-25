@@ -1,5 +1,4 @@
-// let login_ = document.getElementById("login")
-
+let dp = document.getElementById('dp')
 
 
 const firebaseConfig = {
@@ -22,6 +21,7 @@ firebase.initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = firebase.auth();
+
 
 function logout_(){
     firebase.auth().signOut().then(() => {
@@ -59,3 +59,8 @@ function logout_(){
       window.location.href = "login.html"
     }
   });
+
+  function Account_2(){
+    window.location.href = "home.html"
+    // Account_();
+  }
