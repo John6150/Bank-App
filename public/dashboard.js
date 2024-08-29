@@ -12,6 +12,10 @@ notification_msg = document.getElementById("notification_msg")
 
 let mode = "light"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0ffd2663da87c94a8a8b1ed1bd9b74bee2451bb9
 message_dot = document.getElementById("message_dot")
 msg_no = document.getElementById("msg_no")
 
@@ -1044,6 +1048,7 @@ function trans_history() {
               </div>
           </div>
               `
+<<<<<<< HEAD
           } else if(doc.data().Type == 'Registration Bonus'){
             document.getElementById("trans_body").innerHTML += `
             <div onclick="print_tran(${doc.data().Transaction_ID})" class="tran">
@@ -1063,6 +1068,9 @@ function trans_history() {
               `
 
           } else{
+=======
+          } else {
+>>>>>>> 0ffd2663da87c94a8a8b1ed1bd9b74bee2451bb9
             document.getElementById("trans_body").innerHTML += `
             <div onclick="print_tran(${doc.data().Transaction_ID})" class="tran">
               <div class="info1">

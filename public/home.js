@@ -63,6 +63,7 @@ function logout_(){
   function Account_2(){
     window.location.href = "home.html"
     // Account_();
+<<<<<<< HEAD
   }
 
   function abt_vid(){
@@ -123,3 +124,6 @@ function logout_(){
     document.getElementsByClassName('review_vid')[2].pause()
   })
   
+=======
+  }
+>>>>>>> 0ffd2663da87c94a8a8b1ed1bd9b74bee2451bb9
