@@ -52,74 +52,55 @@
                 <span id="pAY">PAY</span>
             </div>
             <div class="menu">
-                <span id="menu">
+                <span id="menu" onclick="dashboard_()">
                     <img width="15" src="./Images/dashboard.png" alt="">
                     <p>Dashboard</p>
                 </span>
-                <span id="menu">
+                <span id="menu" onclick="transactions_()">
                     <img width="15" src="./Images/history.png" alt="">
                     <p>Transactions</p>
                 </span>
-                <span id="menu">
+                <span id="menu" onclick="messages_()">
                     <img width="15" src="./Images/message.png" alt="">
                     <p>Messages</p>
+                    <div id="message_dot">
+                        <p id="msg_no" style="font-size: 10px; font-weight: 400;">9+</p>
+                    </div>
                 </span>
-                <span id="menu">
+                <span id="menu" onclick="cards_()">
                     <img width="15" src="./Images/card.png" alt="">
                     <p>Cards</p>
                 </span>
-                <span id="menu">
-                    <img width="15" src="./Images/Wallet_2.png" alt="">
-                    <p>Wallets</p>
-                </span>
-                <span id="menu">
+                <span id="menu" onclick="Account_()">
                     <img width="15" src="./Images/Settings.png" alt="">
-                    <p>Settings</p>
+                    <p>Account</p>
+                </span>
+
+                <span id="menu">
+                    <img width="15" src="./Images/Customer_Support_2.png" alt="">
+                    <p>Need help?</p>
                 </span>
 
             </div>
             <div class="menu_footer">
                 <span id="menu">
-                    <img width="20" src="./Images/Customer_Support_2.png" alt="">
-                    <p>Need help?</p>
+                    <img width="25" src="./Images/Logout.png" alt="">
+                    <p onclick="logout_()">Logout</p>
                 </span>
-                <span id="menu">
-                    <img width="20" src="./Images/Logout.png" alt="">
-                    <p>Logout</p>
+                <span onclick="dark_light()" style="display: flex; align-items: center; gap: 7px;" id="menu">
+                    <img id="mode_icn" width="25" src="./Images/dark.png" alt="">
+                    <p id="mode">Dark Mode</p>
                 </span>
             </div>
         </div>
         <div class="dashboard">
             <nav>
-                <div class="nav">
-                    <span>
-                        <a href="home.html">
-                            <?xml version="1.0" encoding="utf-8"?>
-                            <svg width="26px" height="26px" viewBox="0 0 296 296" version="1.1"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <path d="M296 0L296 0L296 296L0 296L0 0L296 0Z" id="path_1" />
-                                    <clipPath id="clip_1">
-                                        <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
-                                    </clipPath>
-                                </defs>
-                                <g id="Home" clip-path="url(#clip_1)" transform="scale(0.99999994 0.99999994)">
-                                    <path d="M296 0L296 0L296 296L0 296L0 0L296 0Z" id="Home" fill="none"
-                                        stroke="none" />
-                                    <path
-                                        d="M227.692 23.125C221.422 23.125 216.308 28.2392 216.308 34.5096L216.308 88.9423L156.183 28.8173C151.736 24.3702 144.264 24.3702 139.817 28.8173L6.40385 162.587C1.95673 167.034 1.95673 174.149 6.40385 178.596C10.851 183.043 17.9664 183.043 22.4135 178.596L148 53.0096L273.942 178.952C276.166 181.176 279.19 182.51 282.125 182.51C285.06 182.51 287.728 181.176 289.952 178.952C294.399 174.505 294.399 167.389 289.952 162.942L250.462 123.452L250.462 34.5096C250.462 28.2392 245.347 23.125 239.077 23.125L227.692 23.125ZM148 74L22.7692 199.231L22.7692 261.846C22.7692 280.702 38.0673 296 56.9231 296L239.077 296C257.933 296 273.231 280.702 273.231 261.846L273.231 199.231L148 74ZM125.231 182.154L170.769 182.154C177.04 182.154 182.154 187.268 182.154 193.538L182.154 261.846C182.154 268.117 177.04 273.231 170.769 273.231L125.231 273.231C118.96 273.231 113.846 268.117 113.846 261.846L113.846 193.538C113.846 187.268 118.96 182.154 125.231 182.154L125.231 182.154Z"
-                                        id="Shape" fill="#171d27" fill-rule="evenodd" stroke="none" />
-                                </g>
-                            </svg>
-                        </a>
-                    </span>
-                    <span>
-                        <a href="#">
-                            <img width="26px" src="./Images/bell.png" alt="">
-                        </a>
-                    </span>
-                    <span class="searchbar">
-                        <input type="text" placeholder="Transaction number">
+                <div class="searching" style="position: relative; display: flex; align-items: left; width: 700px;">
+                    <input id="searching"
+                        style="width: 80%; border: .5px solid rgb(125, 125, 125); padding: 10px 10px 10px 15px; border-radius: 40px; background-color: #c5c5c52c; backdrop-filter: blur(150px); color: #040e21;"
+                        placeholder="Search for a transaction using Transaction ID or Name" type="text">
+                    <span onclick="search()" class="searchbar">
+                        <!-- <input type="text" placeholder="Transaction number"> -->
                         <!-- <a href="#"> -->
                         <?xml version="1.0" encoding="utf-8"?>
                         <svg width="26px" height="26px" viewBox="0 0 220 220" version="1.1"
@@ -134,22 +115,69 @@
                                 <path d="M220 0L220 0L220 220L0 220L0 0L220 0Z" id="Search" fill="none" stroke="none" />
                                 <path
                                     d="M91.6667 18.3333C51.2325 18.3333 18.3333 51.2325 18.3333 91.6667C18.3333 132.101 51.2325 165 91.6667 165C110.238 165 127.162 157.999 140.096 146.577L198.426 204.907C199.315 205.796 200.493 206.25 201.667 206.25C202.84 206.25 204.009 205.796 204.907 204.907C206.695 203.111 206.695 200.223 204.907 198.426L146.577 140.096C157.999 127.171 165 110.238 165 91.6667C165 51.2325 132.101 18.3333 91.6667 18.3333L91.6667 18.3333ZM91.6667 27.5C127.041 27.5 155.833 56.2833 155.833 91.6667C155.833 127.05 127.041 155.833 91.6667 155.833C56.2925 155.833 27.5 127.05 27.5 91.6667C27.5 56.2833 56.2925 27.5 91.6667 27.5L91.6667 27.5ZM91.6667 36.6667C72.0171 36.6667 53.8601 47.1496 44.0353 64.1667C34.2105 81.1837 34.2105 102.15 44.0353 119.167C53.8601 136.184 72.0171 146.667 91.6667 146.667C111.316 146.667 129.473 136.184 139.298 119.167C149.123 102.15 149.123 81.1837 139.298 64.1666C129.473 47.1496 111.316 36.6667 91.6666 36.6667L91.6667 36.6667Z"
-                                    id="Shape" fill="#171d27" fill-rule="evenodd" stroke="none" />
+                                    id="Shape" class="Shape" fill="#171d27" fill-rule="evenodd" stroke="none" />
                             </g>
+
                         </svg>
                         <!-- </a> -->
                     </span>
-                    <span onclick="account()" id="account" aria-selected="false">
+                    <div class="search_tran">
+                        <button
+                            style="background-color: red; padding: 5px; height: 17px; width: 17px; color: #ffffff; border: none; outline: none; border-radius: 4px; display: flex; align-items: center; position: absolute; top: 10px; right: 10px; cursor: pointer;"
+                            onclick="close_search()">X</button>
+                        <div class="search_tran_content">
+                            <p id="search_loading" style="margin: auto; color: rgb(52, 52, 52);">Loading...</p>
+                            <p id="search_failed" style="color: rgb(52, 52, 52); margin: auto;">No transaction found</p>
+                            <!-- <div onclick="transactions_()" class="tran">
+                                <div class="info1">
+                                    <img style="width: 60px;" src="./Images/donated.png" alt="">
+                                    <div class=" info_1">
+                                        <p>Hi</p>
+                                        <p style="color: rgb(148, 148, 148); font-size: 12px;">Hey</p>
+                                    </div>
+                                </div>
+                                <div class="info2">
+                                    <p>-&#8358;0</p>
+                                    <p
+                                        style="background-color: rgba(0, 128, 0, 0.722); border-radius: 5px; font-size: 10px; padding: 5px; color: white;">
+                                        Completed</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="nav">
+                    <span>
+                        <a href="home.html">
+                            <img id="home_icn" width="26px" src="./Images/Home.png" alt="">
+                        </a>
+                    </span>
+                    <span id="notification" onclick="notify_()">
+                        <!-- <a href="#"> -->
+                        <img id="bell" width="26px" src="./Images/bell.png" alt="">
+                        <!-- </a> -->
+                        <div id="notification_dot"></div>
+                        <div id="notification_display" class="notification_display">
+                            <p id="notification_msg"
+                                style="font-family: inter; font-size: 13px; line-height: 25px; text-align: justify;"
+                                onclick="messages_()">No
+                                new notification.</p>
+                        </div>
+                    </span>
+
+
+                    <span onclick="Account_()" id="account" aria-selected="false">
                         <div id="dp" class="profiledp">
                         </div>
                     </span>
-                    <span onclick="logout_()" id="logout" aria-selected="false">Logout</span>
+                    <span onclick="logout_()" id="logout" aria-selected="false">Logout
+                    </span>
                 </div>
             </nav>
 
-            <div class="dashboard_content">
+            <div id="dashboard" class="dashboard_content">
                 <div class="ads">
-                    <div class="ads_main">
+                    <div id="ads_main" class="ads_main">
                         <img width="180" src="./Images/3d_char-removebg-preview.png" alt="">
                         <h1 style="text-align: center;">
                             We are here to make your lives easier
@@ -170,36 +198,36 @@
                 </div>
                 <div class="title">
                     <div class="main_balance">
-                        <h1>Dashboard</h1>
+                        <h1 class="dash_">Dashboard</h1>
                         <h4 id="title_">Welcome Guest</h4>
                         <p id="balance">&#8358;0.00 </p>
                     </div>
                     <div class="spent">
                         <img width="40" src="./Images/spendings.png" alt="">
-                        <div class="spent_details">
+                        <div class="dash_" class="spent_details">
                             <h4 id="Spent">&#8358;0.00 Spent</h4>
-                            <p>Over the last 30days</p>
+                            <p class="dash_">Over the last 30days</p>
                         </div>
                     </div>
                     <div class="spent">
                         <img width="40" src="./Images/donations.png" alt="">
                         <div class="spent_details">
                             <h4 id="donated">&#8358;0.00 Donated</h4>
-                            <p>Over the last 30days</p>
+                            <p class="dash_">Over the last 30days</p>
                         </div>
                     </div>
                     <div class="spent">
                         <img width="40" src="./Images/bonus.png" alt="">
                         <div class="spent_details">
                             <h4 id="bonus">&#8358;0.00 Bonus received</h4>
-                            <p>Over the last 30days</p>
+                            <p class="dash_">Over the last 30days</p>
                         </div>
                     </div>
                     <div class="spent">
                         <img width="40" src="./Images/credits.png" alt="">
                         <div class="spent_details">
                             <h4 id="points">0pts Earned</h4>
-                            <p>Over the last 30days</p>
+                            <p class="dash_">Over the last 30days</p>
                         </div>
                     </div>
                 </div>
@@ -221,49 +249,55 @@
                             </div>
                             <div class="card_title">
                                 <h3 style="font-family: inter; color: #ffffff; font-weight: 100;">My Cards</h3>
-                                <img width="25" src="./Images/add2.png" alt="">
+                                <img style="cursor: pointer;" width="25" onclick="cards_()" src="./Images/add2.png"
+                                    alt="">
                             </div>
-                            <div id="cardfaces" class="cardfaces">
-                                <div class="front_card">
-                                    <div class="logo">
-                                        <h3><b>Pi</b>Pay</h3>
-                                    </div>
-                                    <div class="cardic"><img width="35" src="./Images/Card IC.png" alt=""><img
-                                            width="30" src="./Images/signal.png" alt=""></div>
-                                    <div class="cardno">
-                                        <p id="cardnumber">1234567891234567</p>
-                                        <div class="cardname">
-                                            <p>John Femi</p>
-                                            <p id="cardexp">Exp: 06/25</p>
+                            <div id="card_lists" class="card_lists">
+                                <div id="cardfaces" class="cardfaces">
+                                    <div id="front_card" class="front_card">
+                                        <div class="logo">
+                                            <h3><b>Pi</b>Pay</h3>
+                                        </div>
+                                        <div class="cardic"><img width="35" src="./Images/Card IC.png" alt=""><img
+                                                width="30" src="./Images/signal.png" alt=""></div>
+                                        <div class="cardno">
+                                            <p id="cardnumber">CARD LOADING....</p>
+                                            <div class="cardname">
+                                                <p>USER</p>
+                                                <p id="cardexp">Exp: 12/99</p>
+                                            </div>
+                                        </div>
+                                        <div class="cardtype"><img width="40" src="./Images/mastrercard.png" alt="">
                                         </div>
                                     </div>
-                                    <div class="cardtype"><img width="40" src="./Images/mastrercard.png" alt=""></div>
-                                </div>
-                                <div class="back_card">
-                                    <div class="tape">
-                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel soluta, aperiam
-                                            enim
-                                            autem commodi, quis a eaque error nam atque, provident possimus laboriosam
-                                            neque
-                                            aliquid.Blanditiis voluptatum ad pariatur est?</p>
-                                    </div>
-                                    <div class="tape2">
-                                        <p id="cardcvv">CVV 234</p>
-                                    </div>
-                                    <div class="cardexp">
-                                        <p>
-                                            <span><b>Pi</b>Pay</span>Lorem, ipsum dolor sit amet consectetur adipisicing
-                                            elit.
-                                            Nobis dignissimos doloremque vitae sunt quam iusto repellendus rerum
-                                            temporibus
-                                            atque. Magni sequi ad laborum dolore perspiciatis doloremque ipsa ipsum
-                                            expedita
-                                            unde.
-                                        </p>
+                                    <div class="back_card">
+                                        <div class="tape">
+                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel soluta,
+                                                aperiam
+                                                enim
+                                                autem commodi, quis a eaque error nam atque, provident possimus
+                                                laboriosam
+                                                neque
+                                                aliquid.Blanditiis voluptatum ad pariatur est?</p>
+                                        </div>
+                                        <div class="tape2">
+                                            <p id="cardcvv">CVV 000</p>
+                                        </div>
+                                        <div class="cardexp">
+                                            <p>
+                                                <span><b>Pi</b>Pay</span>Lorem, ipsum dolor sit amet consectetur
+                                                adipisicing
+                                                elit.
+                                                Nobis dignissimos doloremque vitae sunt quam iusto repellendus rerum
+                                                temporibus
+                                                atque. Magni sequi ad laborum dolore perspiciatis doloremque ipsa ipsum
+                                                expedita
+                                                unde.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="exchange_rate">
                             <div class="exchange_title">
@@ -327,25 +361,36 @@
 
 
                         <form onsubmit="prevDefault_(event)" id="send" action="#">
-                            <input id="receiver_acct" onkeypress="numberChk(event)" type="text" placeholder="Account Number">
+                            <input id="receiver_acct" oninput="acct_number()" onkeypress="numberChk(event)" type="text"
+                                placeholder="Account Number">
                             <input id="send_amount" onkeypress="numberChk(event)" type="text" placeholder="Amount">
                             <input id="receiver_name" type="text" placeholder="Account Name" disabled>
-                            <button onclick="sendFunds()" type="submit">Send</button>
+                            <button id="send_funds_btn" onclick="authenticate_tran('send')" type="submit">Send</button>
                         </form>
-                        <form onsubmit="prevDefault_(event)" id="fund_div" action="#">
-                            <input onkeypress="numberChk(event)" type="text" placeholder="Amount">
+                        <form method="POST" onsubmit="flutter_()" id="fund_div">
+                            <input id="flutter_amnt" name="amount" onkeypress="numberChk(event)" oninput="flutter_amt()"
+                                type="text" placeholder="Amount">
+                            <input type="hidden" name="public_key"
+                                value="FLWPUBK_TEST-02b9b5fc6406bd4a41c3ff141cc45e93-X" />
+                            <input type="hidden" id="userMail" name="customer[email]" value="" />
+                            <input type="hidden" id="userName" name="customer[name]" value="" />
+                            <input type="hidden" id="userTranId" name="tx_ref" value="" />
+                            <input type="hidden" name="currency" value="NGN" />
+                            <input type="hidden" name="meta[source]" value="docs-html-test" />
                             <select name="" id="fund_method">
-                                <option value="">Method</option>
-                                <option value="ussd">USSD</option>
+                                <!-- <option value="">Method</option>
+                                <option value="ussd">USSD</option> -->
                                 <option value="card">Card</option>
-                                <option value="transfer">Transfer</option>
-                                <option value="cash deposit">Cash Deposit</option>
+                                <!-- <option value="transfer">Transfer</option>
+                                <option value="cash deposit">Cash Deposit</option> -->
                             </select>
-                            <button type="submit">Fund</button>
+                            <button onclick="flutter_()" style="background-color: #989898;" id="fund_btn" type="submit"
+                                disabled>Fund</button>
                         </form>
                         <form onsubmit="prevDefault_(event)" id="donate" action="#">
                             <input onkeypress="numberChk(event)" id="donate_amount" type="text" placeholder="Amount">
-                            <input onkeypress="numberChk(event)" type="text" id="foundation_id" placeholder="Foundation ID">
+                            <input onkeypress="numberChk(event)" type="text" id="foundation_id"
+                                placeholder="Foundation ID">
                             <input type="text" id="foundation_name" placeholder="Foundation Name" disabled>
                             <select name="" id="donate_method">
                                 <option value="">Method</option>
@@ -353,7 +398,7 @@
                                 <option value="card">Card</option>
                                 <option value="cash_deposit">Cash Deposit</option>
                             </select>
-                            <button onclick="donate_funds()" type="submit">Donate</button>
+                            <button id="donate_btn" onclick="authenticate_tran('donate')" type="submit">Donate</button>
                         </form>
                         <form id="airtime_div" action="" onsubmit="prevDefault_(event)">
                             <input id="mobile_number" onkeypress="numberChk(event)" ; oninput="network_type()"
@@ -372,29 +417,28 @@
                                 <h3>Quick Transfers</h3>
                             </div>
                             <div class="benefit">
-                                <div class="beneficiaries">
+                                <div id="beneficiaries" class="beneficiaries">
+                                    <!-- <div id="bene1" onclick="beneficiary_profile()" style="background-image: url('');" class="bene1"></div> -->
+                                    <!-- <div onclick="beneficiary_profile()" class="bene1"></div>
                                     <div onclick="beneficiary_profile()" class="bene1"></div>
                                     <div onclick="beneficiary_profile()" class="bene1"></div>
                                     <div onclick="beneficiary_profile()" class="bene1"></div>
                                     <div onclick="beneficiary_profile()" class="bene1"></div>
                                     <div onclick="beneficiary_profile()" class="bene1"></div>
-                                    <div onclick="beneficiary_profile()" class="bene1"></div>
-                                    <div onclick="beneficiary_profile()" class="bene1"></div>
-                                    <div onclick="beneficiary_profile()" class="bene1"></div>
+                                    <div onclick="beneficiary_profile()" class="bene1"></div> -->
                                 </div>
                             </div>
                             <span id="bene_details">Frank Thomo <p>1122334455</p></span>
                             <div class="bene_send">
-                                <input onkeypress="numberChk(event)" placeholder="Amount" type="text">
-                                <button>Send</button>
+                                <input id="beneficiarySendAmount" onkeypress="numberChk(event)" placeholder="Amount"
+                                    type="text">
+                                <button id="beneficiary_send_btn" onclick="authenticate_tran('ben_send')">Send</button>
                             </div>
-
-
                         </div>
                         <div class="recent_tran">
                             <div class="recent_title">
                                 <h3>Transaction History</h3>
-                                <a href="#">view all</a>
+                                <a onclick="transactions_()" style="cursor: pointer;">view all</a>
                             </div>
                             <div class="recent_tran2">
                                 <div id="recent_details" class="recent_details"></div>
@@ -404,7 +448,172 @@
                     </div>
                 </div>
             </div>
+            <div id="transactions" class="transactions">
+                <div class="transaction_content">
+                    <div class="trans_header">
+                        <h1 style="font-weight: 200;">Transactions</h1>
+                    </div>
+                    <div id="trans_body" class="trans_body">
+
+                        <!-- <div class="tran"><img src="./Images/dial.png" alt=""></div> -->
+                        <p id="loading_trans" style="margin: auto;">Loading...</p>
+                        <p id="empty_trans" style="margin: auto; display: none;">No transactions yet</p>
+                    </div>
+                </div>
+            </div>
+            <div id="message" class="message">
+                <div class="message_content">
+                    <div class="msg_header">
+                        <h1 style="font-weight: 200;">Messages</h1>
+                    </div>
+                    <div id="msg_body" class="msg_body">
+                        <!-- <div class="msg">
+                            <div class="info1">
+                                <h4 style="color: #000000; font-weight: 600; display: flex; align-items: center; gap: 20px;">Credit Alert <p style="font-size: 10px; color: rgb(104, 104, 104); font-weight: 300;">Date: DD/MM/YY</p></h4>
+                                <p style="text-align: justify; font-weight: 300; font-size: 15px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta reprehenderit amet qui iste nam enim corrupti quos quibusdam dolore facilis aperiam ut voluptatibus, odit ipsam molestiae fugit hic nisi repellat!</p>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="tran"><img src="./Images/dial.png" alt=""></div> -->
+                        <p id="empty_msg" style="margin: auto;">No new messages</p>
+                    </div>
+                </div>
+            </div>
+            <div id="card" class="card">
+                <div class="card_content">
+                    <div class="card_header">
+                        <h1 style="font-weight: 200;">Your Cards</h1>
+                    </div>
+                    <div id="card_body" class="card_body">
+                        <div class="card_list1">
+                            <div id="card_list" class="card_list">
+                                <div id="card_lists" class="card_lists">
+                                    <div id="cardfaces" class="cardfaces">
+                                        <div id="front_card" class="front_card">
+                                            <div class="logo">
+                                                <h3><b>Pi</b>Pay</h3>
+                                            </div>
+                                            <div class="cardic"><img width="35" src="./Images/Card IC.png" alt=""><img
+                                                    width="30" src="./Images/signal.png" alt=""></div>
+                                            <div class="cardno">
+                                                <p id="cardnumber">CARD LOADING....</p>
+                                                <div class="cardname">
+                                                    <p>USER</p>
+                                                    <p id="cardexp">Exp: 12/99</p>
+                                                </div>
+                                            </div>
+                                            <div class="cardtype"><img width="40" src="./Images/mastrercard.png" alt="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card_form">
+                            <div class="card_img">
+                                <img width="300px" src="../public/Images/bank card.png" alt="">
+                            </div>
+                            <div class="card_reg">
+                                <h3 id="add_card" style="font-family: inter; color: #eb7724; font-weight: 200;">Add a
+                                    New Card</h3>
+                                <div class="crd1" style="position: relative;">
+                                    <input id="card_title" type="text" placeholder="Card title" required>
+                                    <p id="card_err1"
+                                        style="color: red; font-size: 13px; position: absolute; bottom: -18px; left: 50px; opacity: 0; transition: all 500ms ease;">
+                                        Please enter card title</p>
+                                </div>
+                                <div class="crd1" style="position: relative;">
+                                    <select name="" id="card_type">
+                                        <option value="">Select Card Type</option>
+                                        <option value="mastercard">Mastercard</option>
+                                        <option value="verve">Verve</option>
+                                        <option value="visa">Visa</option>
+                                    </select>
+                                    <p id="card_err2"
+                                        style="color: red; font-size: 13px; position: absolute; bottom: -18px; left: 50px; opacity: 0; transition: all 500ms ease;">
+                                        Select a card type</p>
+                                </div>
+                                <label id="des_card" style="color: #eb7724;" for="">Select Card Design:</label>
+                                <div class="crd2">
+                                    <label for="des1">
+                                        <input name="design" onchange="design_select('a')" id="des1" type="radio"
+                                            style="display: none;">
+                                        <img style="cursor: pointer;" id="a" class="card_designs" width="150px"
+                                            src="../public/Images/card-design1.png" alt="">
+                                    </label>
+                                    <label for="des2">
+                                        <input name="design" id="des2" onchange="design_select('b')" type="radio"
+                                            style="display: none;">
+                                        <img style="cursor: pointer;" id="b" class="card_designs" width="150px"
+                                            src="../public/Images/card-design2.png" alt="">
+                                    </label>
+                                    <label for="des3">
+                                        <input name="design" id="des3" onchange="design_select('c')" type="radio"
+                                            style="display: none;">
+                                        <img style="cursor: pointer;" id="c" class="card_designs" width="150px"
+                                            src="../public/Images/card-design3.png" alt="">
+                                    </label>
+                                    <label for="des4">
+                                        <input name="design" id="des4" onchange="design_select('d')" type="radio"
+                                            style="display: none;">
+                                        <img style="cursor: pointer;" id="d" class="card_designs" width="150px"
+                                            src="../public/Images/card-design4.png" alt="">
+                                    </label>
+                                </div>
+                                <button id="card_btn" onclick="authenticate_tran('card')">Add Card</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="accounts" class="accounts">
+                <div class="account_content">
+                    <div class="acct_header">
+                        <h1 style="font-weight: 200;">My Account</h1>
+                    </div>
+                    <div id="acct_body" class="acct_body">
+                        <div class="userPic">
+                            <div style="border-radius: 100%; width: 100px; height: 70px; background-image: url(./Images/Male_User.png); background-position: center; background-repeat: no-repeat; background-size: cover;"
+                                id="Acct_pic">
+
+                            </div><label
+                                style="width: 90%; height: 10px; background-color: #040e21; color: white; display: flex; align-items: center; justify-content: center; padding: 9px; border-radius: 2px;"
+                                for="chng_pic"> Change Profile
+                                Picture<input onchange="upload()" id="chng_pic" type="file" hidden></label>
+                            <!-- <img  id="Acct_pic" width="90px" src="./Images/Male_User.png" alt=""> -->
+                        </div>
+                        <input id="Acct_name" placeholder="Name" type="text" disabled>
+                        <input id="Acct_email" placeholder="Email" type="text" disabled>
+                        <input id="Acct_number" onkeypress="numberChk(event)" placeholder="Account Number" type="text"
+                            disabled>
+                        <input id="Acct_phn" onkeypress="numberChk(event)" placeholder="Phone Number" type="text">
+                        <input id="Acct_country" placeholder="Country" type="text">
+                        <input id="pin_" onkeypress="numberChk(event)" placeholder="Set a New Pin" type="password"
+                            maxlength="4" oninput="confirm_disabled()">
+                        <div class="cpinss_"
+                            style="display: flex; align-items: flex-start; flex-direction: column; width: 72%; height: 40px; gap: 10px; color: red;">
+                            <input style="width: 97%;" id="cpin_" onkeypress="numberChk(event)" oninput="confirm_pin()"
+                                placeholder="Confirm Pin" type="password" maxlength="4" disabled>
+                            <p style="font-size: 12px; color: red; opacity: 0;" id="matchPin">Pins must match</p>
+                        </div>
+                        <p id="bene_del" style=" color: #eb7724;">Beneficiaries:</p>
+
+                        <div class="userbene">
+                            <!-- <div class="bene_list">
+                                <img width="50px" src="./Images/Male_User.png" alt="">
+                                    <p>Beneficiary</p>
+                                    <button>Delete</button>
+                            </div> -->
+                        </div>
+                        <button id="update_user_btn" onclick="update_user()">Update Account</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
     </div>
     <div id="modal1" class="modal1">
         <div class="modal_header">
@@ -418,7 +627,167 @@
             <button onclick="buyAirtime()">Buy</button>
         </div>
     </div>
+    <div id="modal2" class="modal2">
+        <div class="modal_header">
+            <h4 style="font-weight: 300;">Transfer Successful</h4>
+            <img onclick="close_()" width="25" src="./Images/close.png" alt="">
+        </div>
+        <div class="content">
+            <img width="150" src="./Images/success.png" alt="">
+
+            <div class="message">
+                <div class="ok">
+                    <img width="50" src="./Images/Ok.png" alt="">
+                    <p id="sucess_mg"></p>
+                </div>
+                <p id="send_msg">Do you want to add John as your beneficiary?</p>
+                <div class="btn">
+                    <button onclick="close_()">No</button>
+                    <button onclick="addBeneficiary()">Yes</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="modal3" class="modal3">
+        <div class="modal_header">
+            <h4 style="font-weight: 300; font-family: inherit; color: white;">Account Settings</h4>
+            <button onclick="close_()" style="background-color: red; color: white; border-radius: 5px; width: 25px; height: 25px; display: flex; font-weight: 500; cursor: pointer;
+            align-items: center;">X</button>
+        </div>
+        <p>Settings updated</p>
+        <button onclick="close_()" style="cursor: pointer;">Ok</button>
+    </div>
+    <div id="modal4" class="modal4">
+        <div class="modal_header">
+            <h4 style="font-weight: 300;">Add a New Card</h4>
+            <img onclick="close_()" width="25" src="./Images/close.png" alt="">
+        </div>
+        <p>You will be charged &#8358;1050, proceed?</p>
+        <div class="airtime_btns">
+            <button onclick="close_card()">No</button>
+            <button onclick="proceed()">Yes</button>
+        </div>
+    </div>
+    <div style="display: none;" id="pdf" class="pdf">
+        <div style="width: 90%;
+        height: 90%;
+        /* background-color: green; */
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        gap: 30px;" class="pdf-content">
+            <div style="width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;" class="pdf-header">
+                <div style="display: flex; align-items: start; flex-direction: column; gap: 10px;" class="title">
+                    <h4 style="font-size: 10; font-weight: 400;">Receipt</h4>
+                    <p style="font-size: 9px; color: grey; letter-spacing: 3px;" id="pdf_date">11th May, 2024</p>
+                </div>
+                <img src="../public/Images/logo trans.png" width="30px" alt="">
+
+            </div>
+            <div class="pdf-details">
+                <div style="display: flex; gap: 10px; flex-direction: column;" class="amount">
+                    <div style="display: flex; align-items: center; gap: 5px;" class="amount-header">
+                        <h5>&#8358;</h5>
+                        <h3 id="pdf_amount">9,000. <span style="font-size: 10px;">00</span></h3>
+                        <!-- <h5>.00</h5> -->
+                    </div>
+                    <div class="aount-words">
+                        <p style="font-size: 9px; color: #666666;">Nine Thousand Naira only</p>
+                    </div>
+                    <div class="status">
+                        <p style="font-size: 15px; color: rgb(1, 207, 1);">Success</p>
+                    </div>
+
+                </div>
+                <div class="Beneficiary">
+                    <p style="font-size: 10px; color: #989898;">Beneficiary</p>
+                    <h6 id="pdf_ben">Olaleke John</h6>
+                </div>
+                <div class="Beneficiary">
+                    <p style="font-size: 10px; color: #989898;">Sender</p>
+                    <h6 id="pdf_sender">Olaleke John</h6>
+                </div>
+                <div class="Beneficiary">
+                    <p style="font-size: 10px; color: #989898;">Receiver Bank</p>
+                    <h6>PiPay</h6>
+                </div>
+                <div class="Beneficiary">
+                    <p style="font-size: 10px; color: #989898;">Receiver Account</p>
+                    <h6 id="pdf_acct">0165843028</h6>
+                </div>
+                <div class="Beneficiary">
+                    <p style="font-size: 10px; color: #989898;">Transacion Type</p>
+                    <h6 id="pdf_type">NIP OUTWARD TRANSFER</h6>
+                </div>
+                <div class="Beneficiary">
+                    <p style="font-size: 10px; color: #989898;">Transaction ID</p>
+                    <h6 id="pdf_id">179593954587334496</h6>
+                </div>
+                <div style="width: 100%;" class="Beneficiary">
+                    <p style="font-size: 10px; color: #989898;">Remarks</p>
+                    <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae eaque</h6>
+                </div>
+            </div>
+            <div style="width: 100%; height: 200px; display: flex; flex-direction: column; gap: 10px;"
+                class="pdf-footer">
+                <div style=" width: 100%; height: 80px; display: flex; align-items: center; justify-content: space-between;"
+                    class="QR">
+                    <h2 style="font-size: 15px;">DOWNLOAD the <span style="color: #eb7824;">new <img width="25px"
+                                src="../public/Images/logo trans.png" alt="">Pay app</span> using this QR code</h2>
+                    <img width="80px" src="../public/Images/QR code.png" alt="">
+                </div>
+                <p style="font-size: 10px; text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Eligendi necessitatibus minima perferendis totam eos. Aperiam possimus, vero, dolorem delectus
+                    atque vitae a aspernatur at saepe magnam totam tempore ipsam maiores mollitia rem minima perferendis
+                    eum nihil! Eveniet, laudantium porro fuga eligendi obcaecati ad consequatur quisquam ex, nulla ullam
+                    quia quos.</p>
+            </div>
+            <div style="width: 100%; display: flex; align-items: center; justify-content: space-between;" class="pdf_btns">
+                <button
+                    style="background-color: #eb7724; color: white; border: none; outline: none; height: 40px; width: 100px; border-radius: 5px;"
+                    onclick="savePage()">Print</button>
+                <button
+                    style="background-color: #ff0000; color: white; border: none; outline: none; height: 40px; width: 100px; border-radius: 5px;"
+                    onclick="close_()">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="tran_pin" class="tran_pin">
+        <div class="modal_header">
+            <h4 style="font-weight: 300;">Transaction Pin</h4>
+            <img onclick="close_()" width="25" src="./Images/close.png" alt="">
+        </div>
+        <p>Enter your pin to proceed</p>
+
+        <div class="pins">
+            <input class="input_pins" onkeypress="numberChk(event)" oninput="next()" type="password" maxlength="1">
+            <input class="input_pins" onkeypress="numberChk(event)" oninput="next()" type="password" maxlength="1">
+            <input class="input_pins" onkeypress="numberChk(event)" id="pin2" oninput="next()" type="password"
+                maxlength="1">
+            <input class="input_pins" onkeypress="numberChk(event)" oninput="next()" type="password" maxlength="1">
+        </div>
+        <div class="airtime_btns">
+            <button onclick="close_()">Cancel</button>
+            <button onclick="tran_type_trigger()">Ok</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
 <script src="dashboard.js"></script>
+<!-- <script src="transactions.js"></script> -->
+
+<!-- ${doc.data().Card_Design == 'a' ? '<div style="background-image: linear-gradient(to bottom right, #0e1f40ca, #000000c9), url(./Images/Card-bg3.jpg);" class="back_card">' : doc.data().Card_Design == 'b' ? '<div style="background-image: linear-gradient(to bottom right, #0e1f40ca, #000000c9), url(./Images/Card-bg2.jpg);" class="back_card">' : doc.data().Card_Design == 'c' ? '<div style="background-image: linear-gradient(to bottom right, #0e1f40ca, #000000c9), url(./Images/Card-bg1.jpg);" class="back_card">' : '<div style="background-image: linear-gradient(to bottom right, #0e1f40ca, #000000c9), url(./Images/Card-bg4.jpg);" class="back_card">'} -->
+
+
+
+
+
+

@@ -23,13 +23,22 @@
             <img src="./Images/logo trans.png" width="60" alt=""><span id="pAY">PAY</span>
         </div>
         <div class="nav">
-            <span id="home" aria-selected="true">HOME</span>
-            <span id="fees" aria-selected="false">FEES</span>
-            <span id="faq" aria-selected="false">FAQ</span>
-            <span id="our_mission" aria-selected="false">OUR MISSION</span>
-            <span onclick="login_()" id="login" aria-selected="false">LOGIN</span>
+            <span
+                style="border-bottom: 2px solid #eb7824; height: 80%; display: flex; align-items: center; justify-content: center;"
+                id="home" aria-selected="true">HOME</span>
+            <span style="height: 80%; display: flex; align-items: center; justify-content: center;" id="fees"
+                aria-selected="false">FEES</span>
+            <span style="display: flex; align-items: center; height: 80%; gap: 5px; justify-content: center;" id="faq"
+                aria-selected="false"> <img width="20" height="20" src="../public/Images/faq.png"
+                    alt="lock-2" />FAQ</span>
+            <span style="height: 80%; display: flex; align-items: center; justify-content: center;" id="our_mission"
+                aria-selected="false">OUR MISSION</span>
+            <span style="display: flex; align-items: center; justify-content: center; height: 80%;" onclick="login_()"
+                id="login" aria-selected="false"> <img width="20" height="20" src="../public/Images/lock.png"
+                    alt="lock-2" />LOGIN</span>
             <span onclick="logon()" id="joinus" aria-selected="false">JOIN US</span>
         </div>
+        <div class="skew"></div>
     </nav>
     <main>
 
@@ -44,7 +53,7 @@
                                 Humanitarian Service</span>
                         </div>
 
-                        <button>Start Here</button>
+                        <a href="logon.html"><button>Start Here</button></a>
                         <div class="downlaod">
                             <img width="150px" src="./Images/gplay.png" alt="">
                             <img width="150px" src="./Images/apple store.png" alt="">
@@ -59,7 +68,7 @@
                 <div class="car2_text">
                     <h1><b>Pi</b><span>Pay</span> A Bank for You</h1>
                     <span><b>Home</b> and <b>Abroad</b></span>
-                    <button>Create an Account</button>
+                    <a href="logon.html"><button>Create an Account</button></a>
                     <div class="downlaod">
                         <img width="150px" src="./Images/gplay.png" alt="">
                         <img width="150px" src="./Images/apple store.png" alt="">
@@ -77,7 +86,7 @@
                                 easier for you</span>
                         </div>
 
-                        <button>Claim your 5K</button>
+                        <a href="logon.html"><button>Claim your 5K</button></a>
                         <div class="downlaod">
                             <img width="150px" src="./Images/gplay.png" alt="">
                             <img width="150px" src="./Images/apple store.png" alt="">
@@ -115,84 +124,133 @@
                 <a href="#">Contact</a>
             </div>
         </div>
-        <div class="About">
-            <h2>ABOUT US</h2>
-            <img src="./Images/play.png" width="80px">
+        <!-- <div > -->
+        <!-- <h2>ABOUT US</h2> -->
+        <img onclick="abt_vid()" class="About" src="./Images/play.png" width="60px">
 
+        <!-- </div> -->
+        <div style="opacity: 0; pointer-events: none;" class="abt_video">
+            <video id="abt_vids" style="width: 100%;" src="./vid 3.mp4" controls playsinline></video>
+            <button
+                style="position: absolute; right: 5px; top: 5px; width: 25px; height: 25px; border-radius: 5px; box-shadow: 2px 2px 2px rgb(0, 0, 0); outline: none; border: none; background-color: red; color: white; font-size: 15px; font-family: inter; display: flex; align-items: center; justify-content: center; font-weight: 300;"
+                onclick="close_()">
+                <p>X</p>
+            </button>
         </div>
+
     </main>
     <div class="main2">
         <div class="title">
-            <h2>OUR THREE <br>STEP
-                <span><u>APPROACH</u></span>
-            </h2>
+            <h2>VIEW THE WORLD FROM OUR ANGLE</h2>
         </div>
-        <div class="steps">
-            <div class="step1">
-                <p>#5K BONUS ON SIGNUP</p>
-                <div class="step_number">
-                    <p>#1</p>
-                </div>
-            </div>
-            <div class="step1">
-                <p>INSTANT DEBIT CARD</p>
-                <div class="step_number">
-                    <p>#2</p>
-                </div>
-            </div>
-            <div class="step1">
-                <p>START BANKING</p>
-                <div class="step_number">
-                    <p>#3</p>
-                </div>
-            </div>
-        </div>
-        <div class="explanation">
-            <p>By some means, a surprising flexibility in in terms of the standards control provides a prominent example
-                of The Practice of Basic Capacity (Randy Beale in The Book of the Primary Element)
-                Thus, the explicit examination of major outcomes gives an overview of the irrelevance of program.By some
-                means, a surprising flexibility in in terms of the standards control provides a prominent example
-                of The Practice of Basic Capacity (Randy Beale in The Book of the Primary Element)
-                Thus, the explicit examination of major outcomes gives an overview of the irrelevance of program. </p>
+        <div class="main2_text">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero incidunt odit voluptatem quisquam neque.
+                Alias sint consectetur, consequuntur quis quisquam minima adipisci impedit! Sunt numquam voluptatibus,
+                provident ut nisi atque. Tenetur saepe, eveniet nam facere aperiam magni! Laboriosam esse eaque debitis
+                non accusamus aspernatur natus illum vitae nesciunt, expedita consequuntur, dignissimos repellat dolore
+                in quos obcaecati quasi. In, labore iure exercitationem tempore asperiores illo dicta deleniti ratione
+                soluta qui cupiditate!</p>
+            <button style="display: flex; align-items: center; justify-content: space-around;">
+                <div class="fill"></div> <img width="40px" src="../public/Images/Plane.png" alt="">FLY WITH US
+            </button>
+
         </div>
     </div>
     <div class="main3">
-        <h1>BANKING WITH US IS GIVING TO THE COMMUNIYTY</h1>
+        <h1>BANKING WITH US IS GIVING BACK TO THE <span
+                style="text-decoration: underline 7px #eb7824; text-underline-offset: 5px; color: #eb7824;">COMMUNIYTY</span>
+        </h1>
         <div class="charity">
             <div class="char_step1">
-                <img src="./Images/" width="70" alt="">
-                <p></p>
+                <img width="100%" src="../public/Images/slid1.webp" alt="">
+                <p><b>You Open an Account</b> <br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem ipsam
+                    esse deleniti minus
+                    reprehenderit, tempore voluptas neque, debitis sit ftus velit ...</p>
+                <button style="border: none; outline: none; background-color: #eb7824; color: white; padding: 7px;">Read
+                    More ></button>
             </div>
 
             <div class="char_step1">
-                <!-- <img src="./Images/Transaction_13.png" width="70" alt=""> -->
-                <p></p>
-
+                <img width="100%" src="../public/Images/slid2.jpg" alt="">
+                <p><b>Begin Transacting</b> <br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem ipsam esse
+                    deleniti minus
+                    reprehenderit, tempore voluptas neque, debitis sit ftus velit ...</p>
+                <button style="border: none; outline: none; background-color: #eb7824; color: white; padding: 7px;">Read
+                    More ></button>
             </div>
 
             <div class="char_step1">
-                <!-- <img src="./Images/Transaction_13.png" width="70" alt=""> -->
-                <p></p>
-
+                <img width="100%" src="../public/Images/slid3.webp" alt="">
+                <p><b>50% Service Chages goes to Charity</b> <br>Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Rem ipsam esse deleniti minus
+                    reprehenderit, tempore voluptas neque, debitis sit ftus velit ...</p>
+                <button style="border: none; outline: none; background-color: #eb7824; color: white; padding: 7px;">Read
+                    More ></button>
             </div>
             <div class="char_step1">
-                <!-- <img src="./Images/Donate_2.png" width="70" alt=""> -->
-                <p></p>
-
+                <img width="100%" src="../public/Images/slid4.webp" alt="">
+                <p><b>We Carry the Community Along</b> <br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem
+                    ipsam esse deleniti minus
+                    reprehenderit, tempore voluptas neque, debitis sit ftus velit ...</p>
+                <button style="border: none; outline: none; background-color: #eb7824; color: white; padding: 7px;">Read
+                    More ></button>
             </div>
         </div>
         <div class="char_car">
-            <div class="slid1"></div>
-            <div class="slid1"></div>
-            <div class="slid1"></div>
-            <div class="slid1"></div>
+            <div class="char_car2">
+                <div class="char_car_content">
+                    <div class="slid1">
+                        <div style="display: flex; align-items: center; justify-content: center;" class="filter"><a
+                                style="text-decoration: none; color: white; font-family: inter; font-size: 12px; text-align: center; line-height: 20px;"
+                                href="#">Export <br>Read More</a></div>
+                    </div>
+                    <div class="slid1">
+                        <div style="display: flex; align-items: center; justify-content: center;" class="filter"><a
+                                style="text-decoration: none; color: white; font-family: inter; font-size: 12px; text-align: center; line-height: 20px;"
+                                href="#">Our Customer Represenatives <br>Read More</a></div>
+                    </div>
+                    <div class="slid1">
+                        <div style="display: flex; align-items: center; justify-content: center;" class="filter"><a
+                                style="text-decoration: none; color: white; font-family: inter; font-size: 12px; text-align: center; line-height: 20px;"
+                                href="#">Our Services <br>Read More</a></div>
+                    </div>
+                    <div class="slid1">
+                        <div style="display: flex; align-items: center; justify-content: center;" class="filter"><a
+                                style="text-decoration: none; color: white; font-family: inter; font-size: 12px; text-align: center; line-height: 20px;"
+                                href="#">Mortgage Loan <br>Read More</a></div>
+                    </div>
+                    <div class="slid1">
+                        <div style="display: flex; align-items: center; justify-content: center;" class="filter"><a
+                                style="text-decoration: none; color: white; font-family: inter; font-size: 12px; text-align: center; line-height: 20px;"
+                                href="#">Career <br>Read More</a></div>
+                    </div>
+                    <div class="slid1">
+                        <div style="display: flex; align-items: center; justify-content: center;" class="filter"><a
+                                style="text-decoration: none; color: white; font-family: inter; font-size: 12px; text-align: center; line-height: 20px;"
+                                href="#">Trades <br>Read More</a></div>
+                    </div>
+                    <div class="slid1">
+                        <div style="display: flex; align-items: center; justify-content: center;" class="filter"><a
+                                style="text-decoration: none; color: white; font-family: inter; font-size: 12px; text-align: center; line-height: 20px;"
+                                href="#">Flights <br>Read More</a></div>
+                    </div>
+                    <div class="slid1">
+                        <div style="display: flex; align-items: center; justify-content: center;" class="filter"><a
+                                style="text-decoration: none; color: white; font-family: inter; font-size: 12px; text-align: center; line-height: 20px;"
+                                href="#">Travels <br>Read More</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <div onclick="forward_()" class="slide_btn1"></div>
+            <div onclick="backward_()" class="slide_btn2"></div>
         </div>
     </div>
     <div class="main4">
         <h1>What Are Users Saying?</h1>
         <div class="comments">
             <div class="comment1">
-                <video src="./vid.mp4" width="35%" muted loop></video>
+                <video class="review_vid" src="./vid.mp4" width="35%" loop></video>
                 <div class="vid_comment">
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque earum quae asperiores nemo
                         animi temporibus velit odit dolorem neque laborum atque voluptas ut, tempora omnis ex
@@ -212,12 +270,12 @@
                         necessitatibus provident a nostrum totam. Sit numquam eaque repellat similique, repudiandae,
                         maxime sapiente saepe voluptates dicta, veritatis est iure. Aut.</p>
                 </div>
-                <video src="./vid 3.mp4" width="35%" muted loop></video>
+                <video class="review_vid" src="./vid 3.mp4" width="35%" loop></video>
 
 
             </div>
             <div class="comment1">
-                <video src="./vid 2.mp4" width="35%" muted loop></video>
+                <video class="review_vid" src="./vid 2.mp4" width="35%" loop></video>
                 <div class="vid_comment">
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque earum quae asperiores nemo
                         animi temporibus velit odit dolorem neque laborum atque voluptas ut, tempora omnis ex
@@ -231,23 +289,75 @@
         </div>
         <h4>Trusted by Major Companies in Nigeria:</h4>
         <div class="trusted">
-            <div class="company_logo">
-            </div>
-            <div class="company_logo">
-            </div>
-            <div class="company_logo">
-            </div>
-            <div class="company_logo">
-            </div>
-            <div class="company_logo">
+            <div class="trusted_content">
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
+                <div class="company_logo">
+                </div>
             </div>
 
         </div>
-        <!-- </div> -->
+
     </div>
     <footer>
         <video src="./footer vid.mp4" autoplay loop muted></video>
-        <div class="filter"></div>
+        <div class="filter">
+            <div class="footer_content">
+                <div class="list1">
+                    <b>Our Services</b>
+                    <p>Lorem, ipsum.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                    <p>Lorem.</p>
+                    <p>Lorem, ipsum.</p>
+                    <p>Lorem, ipsum.</p>
+                </div>
+                <div class="list1">
+                    <b>Foundations</b>
+                    <p>Lorem, ipsum.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                    <p>Lorem.</p>
+                    <p>Lorem, ipsum.</p>
+                    <p>Lorem, ipsum.</p>
+                </div>
+                <div class="list1">
+                    <b>Our Services</b>
+                    <p>Lorem, ipsum.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                    <p>Lorem.</p>
+                    <p>Lorem, ipsum.</p>
+                    <p>Lorem, ipsum.</p>
+                </div>
+                <div class="list1">
+                    <b>Socials</b>
+                    <p>Lorem, ipsum.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                    <p>Lorem.</p>
+                </div>
+                <div class="list1">
+                    <b>Our Services</b>
+                    <p>Lorem, ipsum.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 
