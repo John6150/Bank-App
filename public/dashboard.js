@@ -997,7 +997,7 @@ function trans_history() {
           <div onclick="print_tran(${doc.data().Transaction_ID})" class="tran">
             <div class="info1">
             
-            ${doc.data().Beneficiary.Beneficiary_Name == "MTN" ? '<img style="width: 60px;" src="./Images/MTN.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "GLO" ? '<img style="width: 60px;" src="./Images/glo.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "9MOBILE" ? '<img style="width: 60px; height: 50px" src="./Images/9mobile.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "AIRTEL" ? '<img style="width: 60px;" src="./Images/airtel.png" "alt="">' : '<img style="width: 60px;" src="./Images/donated.png" "alt="">'}
+            ${doc.data().Beneficiary.Beneficiary_Name == "MTN" ? '<img style="width: 60px;" src="./Images/mtn.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "GLO" ? '<img style="width: 60px;" src="./Images/glo.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "9MOBILE" ? '<img style="width: 60px; height: 50px" src="./Images/9mobile.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "AIRTEL" ? '<img style="width: 60px;" src="./Images/airtel.png" "alt="">' : '<img style="width: 60px;" src="./Images/donated.png" "alt="">'}
               
               <div class="info_1">
                 <p style= "width: 150px;">${doc.data().Type}</p>
@@ -1737,7 +1737,7 @@ function search() {
           <div class="tran">
             <div class="info1">
             
-            ${doc.data().Beneficiary.Beneficiary_Name == "MTN" ? '<img style="width: 60px;" src="./Images/MTN.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "GLO" ? '<img style="width: 60px;" src="./Images/glo.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "9MOBILE" ? '<img style="width: 60px; height: 50px" src="./Images/9mobile.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "AIRTEL" ? '<img style="width: 60px;" src="./Images/airtel.png" "alt="">' : '<img style="width: 60px;" src="./Images/donated.png" "alt="">'}
+            ${doc.data().Beneficiary.Beneficiary_Name == "MTN" ? '<img style="width: 60px;" src="./Images/mtn.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "GLO" ? '<img style="width: 60px;" src="./Images/glo.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "9MOBILE" ? '<img style="width: 60px; height: 50px" src="./Images/9mobile.png" "alt="">' : doc.data().Beneficiary.Beneficiary_Name == "AIRTEL" ? '<img style="width: 60px;" src="./Images/airtel.png" "alt="">' : '<img style="width: 60px;" src="./Images/donated.png" "alt="">'}
               
               <div class="info_1">
                 <p>${doc.data().Type}</p>
